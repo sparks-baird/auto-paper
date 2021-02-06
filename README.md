@@ -1,6 +1,9 @@
 # auto-paper
 Automate your scientific research paper (thesis, original article, review).
 
+An automated workflow might look something like the following:
+<img src=diagram/auto-paper-new.png width=600>
+
 ## Equations
 ### Existing LaTeX Code
 Search for LaTeX code for common equations
@@ -8,25 +11,23 @@ Search for LaTeX code for common equations
 ### Mathpix Snipping Tool
 Find an image of the equation you're looking for and use [Mathpix Snipping Tool](mathpix.com) to convert to LaTeX, MathML, etc.
 
-## Code
 ### Mathematica
-Beginner:  
+#### Beginner:  
 Use CopyAs.."LaTeX"
 * Typeset equations in Mathematica
 * Can copy LaTeX or MathML into Mathematica (latter generally behaves better in my experience)
 
-Advanced:
+#### Advanced:
 Using `TeXport[]`
 * Export equations to a `.tex` file
 * Export equations followed by variable definitions (e.g. "where a, b, and c represent apples, bananas, and cantouloupes, respectively.")
 * Perform and typeset proofs (equations, variable definitions, sentences, and symbolic solutions)
 
-Expert
+## Plotting
 
-### Plotting
-#### python
+### python
 
-#### MATLAB
+### MATLAB
 mat-fig
 
 ## Literature
@@ -110,3 +111,9 @@ Dealing with numbers and units is a cinch with this package.
 #### xr, zref-xr, or xr-hyper (for multi-document projects)
 e.g. Supplementary Information or Supporting Information, or multiple documents with overlapping content.
 Overleaf tutorial: [Cross referencing with the xr package in Overleaf](https://www.overleaf.com/learn/how-to/Cross_referencing_with_the_xr_package_in_Overleaf)
+
+## Electronic Laboratory Notebooks (ELNs)
+### SciNote vs. Labfolder vs. LabArchives vs. OneNote
+### SciNote
+
+### protocols.io
