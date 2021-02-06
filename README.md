@@ -23,24 +23,6 @@ Using `TeXport[]`
 * Export equations followed by variable definitions (e.g. "where a, b, and c represent apples, bananas, and cantouloupes, respectively.")
 * Perform and typeset proofs (equations, variable definitions, sentences, and symbolic solutions)
 
-Simple example:  
-```
-keys = {a, b, c};
-values = {"apples", "bananas", "cantaloupe"};
-equation = a + b == c;
-keyvalues = {keys, values};
-printQ = True;
-fname = "texport-example";
-TeXport[fname, equation, keyvalues, printQ]
-```
-> \begin{equation} \label{eq:texport-example}  
-> a+b=c  
-> \end{equation}  
-> where $a$, $b$, and $c$ represent apples, bananas, and cantaloupe, respectively.  
-
-<img src=main\code\mathematica\readme-images\texport-easy.png width=500>
-
-
 ## Plotting
 
 ### python
