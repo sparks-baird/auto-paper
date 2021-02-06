@@ -1,6 +1,10 @@
 # Mathematica
 
 ## TeXport
+
+### Install Instructions
+
+
 ### Beginner  
 #### Code
 ```
@@ -55,7 +59,7 @@ Hover over the various boxes to see the corresponding shortcuts. I recommend usi
 where $\text{nforce}$ and $S_{\text{sub}}$ represent number of dimensions to be removed (even if it results in loss of information) and $S$ with the lowest nforce columns removed, respectively.
 ```
 
-#### Typeset Output  
+#### Typeset (LaTeX)  
 <img src=readme-images/texport-hard-latex.png>
 
 ### Advanced
