@@ -1,8 +1,6 @@
 # auto-paper
 Automate your scientific research paper (thesis, original article, review).
 
-{:toc}
-
 ## Equations
 ### Existing LaTeX Code
 Search for LaTeX code for common equations
