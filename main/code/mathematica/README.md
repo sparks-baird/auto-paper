@@ -12,7 +12,7 @@ printQ = True;
 fname = "texport-example";
 TeXport[fname, equation, keyvalues, printQ]
 ```
-Set `printQ` to `False` if you want to export to a file named `fname`. Set to `True` if you want to only Print to `$Output` (Mathematica's `stdout` so to speak).
+Set `printQ` to `False` if you want to export to a file named `fname`(`.tex` extension added automatically). Set to `True` if you want to only Print to `$Output` (Mathematica's `stdout` so to speak).
 #### Output
 > \begin{equation} \label{eq:texport-example}  
 > a+b=c  
