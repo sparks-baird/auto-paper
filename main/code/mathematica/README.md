@@ -59,7 +59,7 @@ where $\text{nforce}$ and $S_{\text{sub}}$ represent number of dimensions to be 
 <img src=readme-images/texport-hard-latex.png>
 
 ### Advanced
-You can also perform symbolic computations for a proof and export the entire proof with intermediate commentary as a `.tex` file. Will probably put an example together for this. Open up an issue if you'd like to see this sooner.
+You can also perform symbolic computations for a proof and export the entire proof with intermediate commentary as a `.tex` file. I have done this for a paper I'm working on and will probably put an example together for this. Open up an issue if you'd like to see this sooner.
 
 ### LaTeX
-Once you have your equation `.tex` files (I suggest putting these in an "equations" folder in your paper repo), commit and push them, then reference the equations in the LaTeX body using e.g. `\cref{eq:svd-force}` from the `cleveref` package.
+Once you have your equation `.tex` files (I suggest putting these in an "equations" folder in your paper repo), commit and push them, and reference the equations in the LaTeX body using e.g. `\cref{eq:svd-force}` from the `cleveref` package.
