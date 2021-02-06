@@ -1,11 +1,8 @@
 # auto-paper
 Automate your scientific research paper (thesis, original article, review).
 
-An automated workflow might look something like this:
+An automated workflow might look something like the following:
 <img src=diagram/auto-paper-new.png width=600>
-
-Filled in with specific programs, for me (at the time of writing) it looks something like this:
-<img src=diagram/auto-paper-new12-protocols.png width=600>
 
 ## Equations
 ### Existing LaTeX Code
@@ -16,15 +13,33 @@ Find an image of the equation you're looking for and use [Mathpix Snipping Tool]
 
 ### Mathematica
 #### Beginner:  
-Use CopyAs.."LaTeX" preceded by one of the following:
+Use <button type="button" name="button" class="btn">CopyAs..</button> <button type="button" name="button" class="btn">"LaTeX"</button>
 * Typeset equations in Mathematica
-* Copy LaTeX or MathML into Mathematica (latter generally behaves better in my experience) using e.g. [Mathpix Snipping Tool](mathpix.com)
+* Can copy LaTeX or MathML into Mathematica (latter generally behaves better in my experience)
 
 #### Advanced:
 Using `TeXport[]`
 * Export equations to a `.tex` file
 * Export equations followed by variable definitions (e.g. "where a, b, and c represent apples, bananas, and cantouloupes, respectively.")
 * Perform and typeset proofs (equations, variable definitions, sentences, and symbolic solutions)
+
+Simple example:  
+```
+keys = {a, b, c};
+values = {"apples", "bananas", "cantaloupe"};
+equation = a + b == c;
+keyvalues = {keys, values};
+printQ = True;
+fname = "texport-example";
+TeXport[fname, equation, keyvalues, printQ]
+```
+> \begin{equation} \label{eq:texport-example}  
+> a+b=c  
+> \end{equation}  
+> where $a$, $b$, and $c$ represent apples, bananas, and cantaloupe, respectively.  
+
+<img src=main\code\mathematica\readme-images\texport-easy.png width=500>
+
 
 ## Plotting
 
@@ -84,7 +99,7 @@ Moved a section from the introduction to the right before the conclusion, and me
 \Gls{rf}
 \glspl{ann}
 ```
-<img src=readme-images/gls-cmds.png width=150>
+<img src=readme-images/gls-cmds.png width=250>
 
 I like to \glsreset after the abstract and right before the conclusion.
 
@@ -96,20 +111,20 @@ Dealing with numbers and units is a cinch with this package.
 \SIlist{10.25; 5; 6}{\joule}
 \SIlist{10.25 +- 2.5; 5 \pm 2.1; 6}{\joule}
 ```
-<img src=readme-images/siunitx-cmds.png width=150>
+<img src=readme-images/siunitx-cmds.png width=250>
 
 #### chemformula (for chemical formulas)
 ```
 \ch{ThCR2Si2}
 ```
-<img src=readme-images/ch-cmds.png width=150>
+<img src=readme-images/ch-cmds.png width=250>
 
 #### hyperref and cleveref (for references)
 ```
 \cite{meredigCombinatorialScreeningNew2014}
 \citet{meredigCombinatorialScreeningNew2014}
 ```
-<img src=readme-images/cite-cmds.png width=150>
+<img src=readme-images/cite-cmds.png width=250>
 
 #### xr, zref-xr, or xr-hyper (for multi-document projects)
 e.g. Supplementary Information or Supporting Information, or multiple documents with overlapping content.
