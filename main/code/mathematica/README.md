@@ -20,9 +20,11 @@ Set `printQ` to `False` if you want to export to a file named `fname`. Set to `T
 > where $a$, $b$, and $c$ represent apples, bananas, and cantaloupe, respectively.
 
 ### Intermediate
+If you're new to Mathematica altogether, start with the [Documentation Home](https://reference.wolfram.com/language/) and look at the linked [Working in Notebooks](https://reference.wolfram.com/language/workflowguide/WorkingInNotebooks). If you're less familiar with typesetting equations in Mathematica, start by reading this [typesetting guide](http://reference.wolfram.com/language/guide/MathematicalTypesetting.html), then in a Mathematica notebook, go to:
+`Menu Bar --> "Palettes" --> "Basic Math Assistant"`.
+Hover over the various boxes to see the corresponding shortcuts. I recommend using the shortcuts for efficiency, but you can also click on the boxes. If you're interested in the inner-workings of the code, see also [String Manipulation Guide](https://reference.wolfram.com/language/guide/StringManipulation.html). The [Mathematica Stack Exchange](https://mathematica.stackexchange.com) is another great resource, and many Google searches will direct you to there.
 #### Code
 <img src='readme-images/texport-hard.png'>
-
 
 #### Output
 ```
@@ -57,4 +59,7 @@ where $\text{nforce}$ and $S_{\text{sub}}$ represent number of dimensions to be 
 <img src=readme-images/texport-hard-latex.png>
 
 ### Advanced
-You can also perform symbolic computations for a proof and export the entire proof with other commentary as a `.tex` file. Will probably put an example together soon.
+You can also perform symbolic computations for a proof and export the entire proof with intermediate commentary as a `.tex` file. Will probably put an example together for this. Open up an issue if you'd like to see this sooner.
+
+### LaTeX
+Once you have your equation `.tex` files (I suggest putting these in an "equations" folder in your paper repo), commit and push them, then reference the equations in the LaTeX body using e.g. `\cref{eq:svd-force}` from the `cleveref` package.
