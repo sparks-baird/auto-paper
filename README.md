@@ -1,8 +1,11 @@
 # auto-paper
 Automate your scientific research paper (thesis, original article, review).
 
-An automated workflow might look something like the following:
+An automated workflow might look something like this:
 <img src=diagram/auto-paper-new.png width=600>
+
+Filled in with specific programs, for me (at the time of writing) it looks something like this:
+<img src=diagram/auto-paper-new12-protocols.png width=600>
 
 ## Equations
 ### Existing LaTeX Code
@@ -13,9 +16,9 @@ Find an image of the equation you're looking for and use [Mathpix Snipping Tool]
 
 ### Mathematica
 #### Beginner:  
-Use CopyAs.."LaTeX"
+Use CopyAs.."LaTeX" preceded by one of the following:
 * Typeset equations in Mathematica
-* Can copy LaTeX or MathML into Mathematica (latter generally behaves better in my experience)
+* Copy LaTeX or MathML into Mathematica (latter generally behaves better in my experience) using e.g. [Mathpix Snipping Tool](mathpix.com)
 
 #### Advanced:
 Using `TeXport[]`
@@ -81,7 +84,7 @@ Moved a section from the introduction to the right before the conclusion, and me
 \Gls{rf}
 \glspl{ann}
 ```
-<img src=gls-cmds.png width=150>
+<img src=readme-images/gls-cmds.png width=150>
 
 I like to \glsreset after the abstract and right before the conclusion.
 
@@ -93,20 +96,20 @@ Dealing with numbers and units is a cinch with this package.
 \SIlist{10.25; 5; 6}{\joule}
 \SIlist{10.25 +- 2.5; 5 \pm 2.1; 6}{\joule}
 ```
-<img src=siunitx-cmds.png width=150>
+<img src=readme-images/siunitx-cmds.png width=150>
 
 #### chemformula (for chemical formulas)
 ```
 \ch{ThCR2Si2}
 ```
-<img src=ch-cmds.png width=150>
+<img src=readme-images/ch-cmds.png width=150>
 
 #### hyperref and cleveref (for references)
 ```
 \cite{meredigCombinatorialScreeningNew2014}
 \citet{meredigCombinatorialScreeningNew2014}
 ```
-<img src=cite-cmds.png width=150>
+<img src=readme-images/cite-cmds.png width=150>
 
 #### xr, zref-xr, or xr-hyper (for multi-document projects)
 e.g. Supplementary Information or Supporting Information, or multiple documents with overlapping content.
