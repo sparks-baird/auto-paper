@@ -1,7 +1,7 @@
 # Mathematica
 
 ## TeXport
-### Simple example:  
+### Beginner  
 #### Code
 ```
 keys = {a, b, c};
@@ -12,13 +12,14 @@ printQ = True;
 fname = "texport-example";
 TeXport[fname, equation, keyvalues, printQ]
 ```
+Set `printQ` to `False` if you want to export to a file named `fname`. Set to `True` if you want to only Print to `$Output` (Mathematica's `stdout` so to speak).
 #### Output
 > \begin{equation} \label{eq:texport-example}  
 > a+b=c  
 > \end{equation}  
 > where $a$, $b$, and $c$ represent apples, bananas, and cantaloupe, respectively.
 
-### Complex example:
+### Intermediate
 #### Code
 <img src='readme-images/texport-hard.png'>
 
@@ -54,3 +55,6 @@ where $\text{nforce}$ and $S_{\text{sub}}$ represent number of dimensions to be 
 
 #### Typeset Output  
 <img src=readme-images/texport-hard-latex.png>
+
+### Advanced
+You can also perform symbolic computations for a proof and export the entire proof with other commentary as a `.tex` file. Will probably put an example together soon.
