@@ -12,7 +12,7 @@ Find an image of the equation you're looking for and use [Mathpix Snipping Tool]
 ### Mathematica
 Beginner:  
 Use CopyAs.."LaTeX"
-* Typeset equations in Mathematica and
+* Typeset equations in Mathematica
 * Can copy LaTeX or MathML into Mathematica (latter generally behaves better in my experience)
 
 Advanced:
