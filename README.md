@@ -26,6 +26,10 @@ Using `TeXport[]`
 ## Plotting
 
 ### python
+Plotting videos by Dr. Taylor Sparks: Python to make nice figures.
+[Part I](https://www.youtube.com/watch?v=rUV8VFbUi_U)
+[Part II](https://www.youtube.com/watch?v=Y8JWfGjj2ok)
+[Part III](https://www.youtube.com/watch?v=fwZahTYfyxA)
 
 ### MATLAB
 mat-fig
@@ -69,7 +73,8 @@ Ability to quick-copy citation commands.
 
 
 ## LaTeX
-Overleaf has great LaTeX documentation, even if you're not using Overleaf. Start out with [Documentation Home](https://www.overleaf.com/learn/latex/Main_Page) and the linked [Learn LaTeX in 30 minutes](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes). Also note that the [TeX Stack Exchange](https://tex.stackexchange.com) is a great resource as well. Google searches will often pull up links to either resource.
+Overleaf has great LaTeX documentation, even if you're not using Overleaf. Start out with [Documentation Home](https://www.overleaf.com/learn/latex/Main_Page) and the linked [Learn LaTeX in 30 minutes](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes). Also note that the [TeX Stack Exchange](https://tex.stackexchange.com) is a great resource as well. Google searches will often pull up links to either resource. Andrew Falkowski also gives a [Tutorial for writing lab reports in LaTeX and Overleaf](https://www.youtube.com/watch?v=y8y_KIs9JLs).
+
 ### Packages
 In addition to the above resources, packages have their own documentation and examples which are usually quite informative.
 
