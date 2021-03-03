@@ -1,0 +1,3 @@
+[submodule "latex-teaching"]
+	path = latex/latex-teaching
+	url = https://github.com/sgbaird/latex-teaching.git
