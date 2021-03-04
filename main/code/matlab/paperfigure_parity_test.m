@@ -1,4 +1,4 @@
-folder = '../../../latex/latex-teaching/figures/';
+folder = 'latex-teaching/figures/';
 %LaTeX Defaults
 setlatex();
 
@@ -8,7 +8,7 @@ ytrue = (0.01:0.0001:1).';
 ypred = normrnd(ytrue,0.02);
 parityplot(ytrue,ypred)
 savefigpng(folder,'single-parity')
-str = ['Parity plot with \\gls{rmse} of \\SI{%.5d}{\\J\\per\\square\\m}'];
+str = 'Parity plot with \\gls{rmse} of \\SI{%.5d}{\\J\\per\\square\\m}';
 caption = sprintf(str,get_errmetrics(ypred,ytrue,'rmse'));
 savefigstr(caption,'multi-parity',folder)
 
