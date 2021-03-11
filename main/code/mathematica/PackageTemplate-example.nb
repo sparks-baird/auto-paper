@@ -1,0 +1,73 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2059,         65]
+NotebookOptionsPosition[      1345,         45]
+NotebookOutlinePosition[      1890,         63]
+CellTagsIndexPosition[      1847,         60]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"<<", "PackageTemplate`"}]], "Input",
+ CellChangeTimes->{{3.8244867367917185`*^9, 3.8244867392135944`*^9}},
+ CellLabel->
+  "In[284]:=",ExpressionUUID->"90f5b0f4-ec04-43d7-8200-6d5f2918dee7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Get", "noopen", 
+   "\"Cannot open \\!\\(\\*RowBox[{\\\"\\\\\\\"PackageTemplate`\\\\\\\"\\\"}]\
+\\).\"", 2, 284, 37, 17473151685504731433, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.824486739901093*^9},
+ CellLabel->
+  "During evaluation of \
+In[284]:=",ExpressionUUID->"eeaae36e-7a11-43ad-ab50-13b2068b6115"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.8244867402917166`*^9},
+ CellLabel->
+  "Out[284]=",ExpressionUUID->"b6cbc85f-53bd-453c-ba82-9f8ef31486ed"]
+}, Open  ]]
+},
+WindowSize->{1140.6, 585.6},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowStatusArea->"PackageTemplate-example.nb last backed up to \
+PackageTemplate-example.nb~ on Thu 11 Mar 2021 at 2:25:40 PM",
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (June 19, 2020)",
+StyleDefinitions->"defaultSyntaxHighlight.nb",
+ExpressionUUID->"40e8bda9-49ab-43ae-bd67-ce5eeed44f9b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 213, 4, 28, "Input",ExpressionUUID->"90f5b0f4-ec04-43d7-8200-6d5f2918dee7"],
+Cell[796, 28, 369, 9, 23, "Message",ExpressionUUID->"eeaae36e-7a11-43ad-ab50-13b2068b6115"],
+Cell[1168, 39, 161, 3, 32, "Output",ExpressionUUID->"b6cbc85f-53bd-453c-ba82-9f8ef31486ed"]
+}, Open  ]]
+}
+]
+*)
+

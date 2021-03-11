@@ -1,0 +1,958 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     38632,        949]
+NotebookOptionsPosition[     31995,        825]
+NotebookOutlinePosition[     32482,        842]
+CellTagsIndexPosition[     32439,        839]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["CRediT statement", "Title",
+ CellChangeTimes->{{3.8244795173132515`*^9, 3.8244795210602*^9}}],
+
+Cell["\<\
+Parse Google Form responses from authors to form a Contributor Roles Taxonomy \
+(CRediT) statement.\
+\>", "Subtitle",
+ CellChangeTimes->{{3.824479524063106*^9, 3.824479536997778*^9}, {
+  3.8244839396214275`*^9, 3.8244839505902877`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Helper Functions", "Chapter",
+ CellChangeTimes->{{3.824481854798043*^9, 3.8244818561261697`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["EditToExportURL", "Section",
+ CellChangeTimes->{{3.8244819497825937`*^9, 3.824481951984687*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"EditToExportURL", "[", "url_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"Append", "[", 
+      RowBox[{
+       RowBox[{"KeyDrop", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<Path\>\"", ",", "\"\<Query\>\"", ",", "\"\<Fragment\>\""}], 
+          "}"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\"\<Path\>\"", "\[Rule]", 
+          RowBox[{"StringReplace", "[", 
+           RowBox[{
+            RowBox[{"#", "[", "\"\<Path\>\"", "]"}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"#", "[", "\"\<Path\>\"", "]"}], "\[LeftDoubleBracket]", 
+              RowBox[{"-", "1"}], "\[RightDoubleBracket]"}], "\[Rule]", 
+             "\"\<export\>\""}]}], "]"}]}], ",", 
+         RowBox[{"\"\<Query\>\"", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{
+               "#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               "\[Rule]", 
+               RowBox[{
+               "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
+              "&"}], "@", 
+             RowBox[{"StringSplit", "[", 
+              RowBox[{
+               RowBox[{"parsedURL", "[", "\"\<Fragment\>\"", "]"}], ",", 
+               "\"\<=\>\""}], "]"}]}], ",", 
+            RowBox[{"\"\<format\>\"", "\[Rule]", "\"\<csv\>\""}]}], "}"}]}], 
+         ",", 
+         RowBox[{"\"\<Fragment\>\"", "\[Rule]", "None"}]}], "}"}]}], "]"}], 
+     "&"}], "@", 
+    RowBox[{"URLParse", "@", "url"}]}], "//", 
+   "URLBuild"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"EditToExportURL", "::", "usage"}], "=", 
+   "\"\<EditToExportURL[url] converts a Google Sheets spreadsheet edit URL \
+into an export (i.e. download) URL by breaking the URLs into parts via \
+URLParse, replacing values in the Association, and building it back up via \
+URLBuild.\>\""}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.8244801050031905`*^9, 3.8244801089875383`*^9}, {
+   3.824480314392973*^9, 3.824480403970791*^9}, {3.824480454829897*^9, 
+   3.8244805659280863`*^9}, {3.824480602211356*^9, 3.8244806390902386`*^9}, {
+   3.824480671520426*^9, 3.824480723995835*^9}, {3.8244807717362795`*^9, 
+   3.82448085370057*^9}, 3.8244810440410304`*^9, {3.824481408837677*^9, 
+   3.824481410217806*^9}, {3.82448201573048*^9, 3.8244820207429075`*^9}, {
+   3.824482173537155*^9, 3.8244821789492345`*^9}, {3.82448235334713*^9, 
+   3.8244824203786407`*^9}, 3.8244835749644575`*^9},
+ CellLabel->"In[143]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Example", "Section",
+ CellChangeTimes->{{3.8244813744953938`*^9, 3.824481387550578*^9}, {
+  3.824481946158619*^9, 3.824481946882129*^9}}],
+
+Cell["The goal is to get editURL to look like downloadURL", "Text",
+ CellChangeTimes->{{3.8244811330630755`*^9, 3.8244811692170887`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "editURL", "=", 
+   "\"\<https://docs.google.com/spreadsheets/d/1-JamMGQnN6d8AX_\
+HojonZJMFepMn62gj3m_0BKvUeGM/edit#gid=2008204346\>\""}], ";"}]], "Input",
+ CellChangeTimes->{{3.8244805770087605`*^9, 3.8244805798993444`*^9}, {
+  3.824481182557931*^9, 3.8244811827189565`*^9}, {3.8244824732071047`*^9, 
+  3.8244824762273293`*^9}},
+ CellLabel->"In[145]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"downloadURL", "=", 
+  RowBox[{"EditToExportURL", "@", "editURL"}]}]], "Input",
+ CellChangeTimes->{{3.8244818979343224`*^9, 3.8244819321988688`*^9}},
+ CellLabel->"In[146]:="],
+
+Cell[BoxData["\<\"https://docs.google.com/spreadsheets/d/1-JamMGQnN6d8AX_\
+HojonZJMFepMn62gj3m_0BKvUeGM/export?gid=2008204346&format=csv\"\>"], "Output",\
+
+ CellChangeTimes->{3.824481901644432*^9, 3.8244819344345927`*^9, 
+  3.8244824779437704`*^9, 3.8244835768556423`*^9},
+ Background->RGBColor[0.87, 0.94, 1],
+ CellLabel->"Out[146]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Verify Match", "Subsection",
+ CellChangeTimes->{{3.8244819613666344`*^9, 3.824481962757206*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "checkURL", "=", 
+   "\"\<https://docs.google.com/spreadsheets/d/1-JamMGQnN6d8AX_\
+HojonZJMFepMn62gj3m_0BKvUeGM/export?gid=2008204346&format=csv\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"exportURL", "===", "checkURL"}]}], "Input",
+ CellChangeTimes->{{3.824481393084121*^9, 3.824481405812005*^9}, {
+  3.8244824800846977`*^9, 3.824482483834619*^9}},
+ CellLabel->"In[147]:="],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.8244813972669554`*^9, 3.8244814146512537`*^9}, 
+   3.824481935012686*^9, 3.8244824842562804`*^9, 3.8244835774557304`*^9},
+ Background->RGBColor[0.87, 0.94, 1],
+ CellLabel->"Out[148]="]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Download Responses", "Chapter",
+ CellChangeTimes->{{3.824481770108368*^9, 3.8244817753835077`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Intro", "Section",
+ CellChangeTimes->{{3.824481431073159*^9, 3.8244814315577345`*^9}}],
+
+Cell["\<\
+Probably need to make sure anyone with the link can download.\
+\>", "Text",
+ CellChangeTimes->{{3.8244812223261003`*^9, 3.824481232480493*^9}, {
+  3.8244812829434133`*^9, 3.824481285389739*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Convert the Edit URL to an Export URL", "Section",
+ CellChangeTimes->{{3.824481311729827*^9, 3.8244813210749187`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Conversion", "Subsection",
+ CellChangeTimes->{{3.824481441645505*^9, 3.8244814441300244`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"exportURL", "=", 
+  RowBox[{"EditToExportURL", "[", "editURL", "]"}]}]], "Input",
+ CellChangeTimes->{{3.8244805453619585`*^9, 3.824480553325157*^9}, {
+  3.8244805897714524`*^9, 3.824480590537096*^9}, {3.824480624336301*^9, 
+  3.8244806479736433`*^9}, {3.824480713301092*^9, 3.824480715430312*^9}, {
+  3.824481325809046*^9, 3.824481328839968*^9}, {3.824481359937385*^9, 
+  3.8244813673588295`*^9}},
+ CellLabel->"In[149]:="],
+
+Cell[BoxData["\<\"https://docs.google.com/spreadsheets/d/1-JamMGQnN6d8AX_\
+HojonZJMFepMn62gj3m_0BKvUeGM/export?gid=2008204346&format=csv\"\>"], "Output",\
+
+ CellChangeTimes->{
+  3.824480556215728*^9, {3.824480592412094*^9, 3.824480648161089*^9}, {
+   3.8244806916664953`*^9, 3.8244807249798746`*^9}, 3.824480779267004*^9, 
+   3.8244808197573943`*^9, 3.824481051050268*^9, {3.824481362499454*^9, 
+   3.824481367827615*^9}, 3.8244814118045206`*^9, 3.824483578094251*^9},
+ CellLabel->"Out[149]="]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Download CSV", "Section",
+ CellChangeTimes->{{3.8244814522647295`*^9, 3.8244814547002144`*^9}, {
+  3.824481814848039*^9, 3.8244818194621663`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"responses", "=", 
+   RowBox[{"Import", "@", "exportURL"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8244814755619354`*^9, 3.8244815083307495`*^9}, {
+   3.824481552232921*^9, 3.824481644764881*^9}, 3.824481686037883*^9, 
+   3.8244818271782365`*^9},
+ CellLabel->"In[164]:="]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Parse Responses", "Chapter",
+ CellChangeTimes->{{3.8244818336645136`*^9, 3.8244818350709314`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"\[ScriptCapitalQ]", "=", 
+  RowBox[{
+  "responses", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"\[ScriptCapitalR]", "=", 
+   RowBox[{
+    RowBox[{"responses", "\[LeftDoubleBracket]", 
+     RowBox[{"2", ";;"}], "\[RightDoubleBracket]"}], "\[Transpose]"}]}], ";", 
+  
+  RowBox[{"\[ScriptCapitalR]", "//", "TableForm"}]}]}], "Input",
+ CellChangeTimes->{{3.8244814755619354`*^9, 3.8244815083307495`*^9}, {
+   3.824481552232921*^9, 3.824481644764881*^9}, 3.824481686037883*^9, 
+   3.8244818271782365`*^9},
+ CellLabel->"In[165]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Timestamp\"\>", 
+   ",", "\<\"Write your name below (e.g. John Doe):\"\>", 
+   ",", "\<\"Project-Level\"\>", ",", "\<\"Ideas/Methods\"\>", 
+   ",", "\<\"Results\"\>", ",", "\<\"Writing/Visualization\"\>", 
+   ",", "\<\"Comments (optional)\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.824481591444991*^9, 3.824481645937313*^9}, 
+   3.8244816868657045`*^9, 3.824483580241848*^9, 3.82448381931853*^9},
+ CellLabel->"Out[165]="],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"3/6/2021 14:10:58\"\>", "\<\"3/6/2021 14:51:34\"\>", "\<\"3/11/2021 \
+8:30:30\"\>", "\<\"3/11/2021 11:22:48\"\>"},
+    {"\<\"Sterling Baird\"\>", "\<\"Oliver Johnson\"\>", "\<\"David \
+Fullwood\"\>", "\<\"Eric Homer\"\>"},
+    {"\<\"\"\>", "\<\"Supervision: Oversight and leadership responsibility \
+for the research activity planning and execution or including mentorship \
+external to the core team, Project administration: Management and \
+coordination responsibility for the research activity planning and execution, \
+Funding acquisition: Acquisition of the financial support for the project \
+leading to this publication\"\>", "\<\"\"\>", "\<\"Funding acquisition: \
+Acquisition of the financial support for the project leading to this \
+publication\"\>"},
+    {"\<\"Conceptualization: Ideas; formulation or evolution of overarching \
+research goals and aims, Methodology: Development or design of methodology; \
+creation of models, Software: Programming or software development; designing \
+computer programs; implementation of the computer code and supporting \
+algorithms; testing of existing code components\"\>", "\<\"Conceptualization: \
+Ideas; formulation or evolution of overarching research goals and aims\"\>", \
+"\<\"\"\>", "\<\"\"\>"},
+    {"\<\"Validation: Verification whether as a part of the activity or \
+separate of the overall replication/ reproducibility of results/experiments \
+and other research outputs, Formal analysis: Application of statistical or \
+mathematical or computational or other formal techniques to analyze or \
+synthesize study data, Investigation: Conducting a research and investigation \
+process or specifically performing the experiments or data/evidence \
+collection, Data Curation: Management activities to annotate (produce \
+metadata) or scrub data and maintain research data (including software code \
+where it is necessary for interpreting the data itself) for initial use and \
+later reuse\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {"\<\"Writing - Original Draft: Preparation and/or creation and/or \
+presentation of the published work or specifically writing the initial draft \
+(including substantive translation), Writing - Review & Editing: Preparation \
+and/or creation and/or presentation of the published work by those from the \
+original research group; specifically critical review or commentary or \
+revision \[Dash] including pre-or postpublication stages, Visualization: \
+Preparation and/or creation and/or presentation of the published work; \
+specifically visualization/ data presentation\"\>", "\<\"Writing - Review & \
+Editing: Preparation and/or creation and/or presentation of the published \
+work by those from the original research group; specifically critical review \
+or commentary or revision \[Dash] including pre-or postpublication \
+stages\"\>", "\<\"Writing - Review & Editing: Preparation and/or creation \
+and/or presentation of the published work by those from the original research \
+group; specifically critical review or commentary or revision \[Dash] \
+including pre-or postpublication stages\"\>", "\<\"Writing - Review & \
+Editing: Preparation and/or creation and/or presentation of the published \
+work by those from the original research group; specifically critical review \
+or commentary or revision \[Dash] including pre-or postpublication \
+stages\"\>"},
+    {"\<\"\"\>", "\<\"If you used the super computer, you\[CloseCurlyQuote]ll \
+also need to acknowledge those resources I believe they have their own \
+acknowledgment statement you can contact them for or find on their \
+website).\"\>", "\<\"\"\>", "\<\"I'm not sure at what point to mark the \
+project-level contributions. In some ways we contributed to mentoring as we \
+talked about things at meetings, on the other hand, our contribution in \
+mentoring is minor compared to Dr Johnson's. I suggest you chat with him to \
+determine the appropriate credit statement for me and Dr Fullwood. \"\>"}
+   },
+   GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.824481591444991*^9, 3.824481645937313*^9}, 
+   3.8244816868657045`*^9, 3.824483580241848*^9, 3.8244838193809958`*^9},
+ CellLabel->"Out[166]//TableForm="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "timestamp", ",", "names", ",", "project", ",", "ideas", ",", "results", 
+     ",", "writing", ",", "comments"}], "}"}], "=", "\[ScriptCapitalR]"}], 
+  ";"}], "\[IndentingNewLine]", "names"}], "Input",
+ CellChangeTimes->{{3.8244816593561263`*^9, 3.824481741854783*^9}, {
+  3.824483590717576*^9, 3.8244835908360896`*^9}},
+ CellLabel->"In[167]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Sterling Baird\"\>", ",", "\<\"Oliver Johnson\"\>", 
+   ",", "\<\"David Fullwood\"\>", ",", "\<\"Eric Homer\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.824483591488434*^9, 3.824483819976393*^9},
+ CellLabel->"Out[168]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"project", "\[LeftDoubleBracket]", "2", 
+  "\[RightDoubleBracket]"}]], "Input",
+ CellLabel->"In[169]:="],
+
+Cell[BoxData["\<\"Supervision: Oversight and leadership responsibility for \
+the research activity planning and execution or including mentorship external \
+to the core team, Project administration: Management and coordination \
+responsibility for the research activity planning and execution, Funding \
+acquisition: Acquisition of the financial support for the project leading to \
+this publication\"\>"], "Output",
+ CellChangeTimes->{3.8244829109567146`*^9, 3.8244835919237957`*^9, 
+  3.8244837033242035`*^9, 3.8244838205857334`*^9},
+ CellLabel->"Out[169]="]
+}, Open  ]],
+
+Cell[BoxData["Flatten"], "Input",
+ CellChangeTimes->{{3.8244841120917797`*^9, 3.8244841128573246`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"terms", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"StringSplit", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"{", 
+           RowBox[{"\"\<,\>\"", ",", "\"\<:\>\""}], "}"}]}], "]"}], 
+        "\[LeftDoubleBracket]", 
+        RowBox[{";;", ";;", "2"}], "\[RightDoubleBracket]"}], "&"}], "/@", 
+      "#"}], "&"}], "/@", 
+    RowBox[{"{", 
+     RowBox[{"project", ",", "ideas", ",", "results", ",", "writing"}], 
+     "}"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"terms", "=", 
+   RowBox[{"terms", "\[Transpose]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"terms", "=", 
+   RowBox[{"Flatten", "/@", "terms"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"terms", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"StringReplace", "[", 
+     RowBox[{"#", ",", 
+      RowBox[{
+       RowBox[{"RegularExpression", "[", "\"\<^ \>\"", "]"}], "\[Rule]", 
+       "\"\<\>\""}]}], "]"}], "&"}], "/@", "terms"}]}]}], "Input",
+ CellChangeTimes->{{3.824482533429583*^9, 3.8244825348680716`*^9}, {
+  3.824482632086671*^9, 3.8244827465113153`*^9}, {3.8244827932200847`*^9, 
+  3.8244828075545096`*^9}, {3.8244828732069473`*^9, 3.824482969658389*^9}, {
+  3.8244832300943184`*^9, 3.824483257105756*^9}, {3.824483326292186*^9, 
+  3.824483327413213*^9}, {3.824483666657363*^9, 3.8244837216869826`*^9}, {
+  3.8244838312834425`*^9, 3.8244838353595104`*^9}, {3.824483977869358*^9, 
+  3.824483978635251*^9}, {3.82448406048223*^9, 3.8244842310770645`*^9}, {
+  3.8244844159058876`*^9, 3.824484496480974*^9}},
+ CellLabel->"In[224]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"Conceptualization\"\>", ",", "\<\"Methodology\"\>", 
+     ",", "\<\"Software\"\>", ",", "\<\"Validation\"\>", 
+     ",", "\<\"Formal analysis\"\>", ",", "\<\"Investigation\"\>", 
+     ",", "\<\"Data Curation\"\>", ",", "\<\"Writing - Original Draft\"\>", 
+     ",", "\<\"Writing - Review & Editing\"\>", 
+     ",", "\<\"Visualization\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Supervision\"\>", ",", "\<\"Project administration\"\>", 
+     ",", "\<\"Funding acquisition\"\>", ",", "\<\"Conceptualization\"\>", 
+     ",", "\<\"Writing - Review & Editing\"\>"}], "}"}], ",", 
+   RowBox[{"{", "\<\"Writing - Review & Editing\"\>", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Funding acquisition\"\>", 
+     ",", "\<\"Writing - Review & Editing\"\>"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.824482635461652*^9, 3.8244826569929023`*^9}, {
+   3.824482700660098*^9, 3.824482746839055*^9}, {3.8244827937216887`*^9, 
+   3.8244828079760666`*^9}, {3.824482875123727*^9, 3.824482904046032*^9}, {
+   3.824482941087028*^9, 3.8244829699411583`*^9}, 3.8244832580565042`*^9, 
+   3.824483328319846*^9, 3.8244835928156385`*^9, {3.824483668688615*^9, 
+   3.824483722530466*^9}, {3.824483822320155*^9, 3.824483835625114*^9}, 
+   3.824483981291233*^9, {3.824484085060295*^9, 3.8244842320458393`*^9}, {
+   3.8244844814979753`*^9, 3.8244844967779727`*^9}},
+ CellLabel->"Out[227]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"terms", "\[LeftDoubleBracket]", "1", 
+  "\[RightDoubleBracket]"}]], "Input",
+ CellChangeTimes->{{3.82448457707555*^9, 3.824484581841178*^9}},
+ CellLabel->"In[234]:="],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   StringJoin["Backing up ", 
+    FileNameTake[NotebookBackup`Private`nbfile$91715], " to ", 
+    FileNameTake[NotebookBackup`Private`bakfile$91715], "..."], StandardForm],
+  
+  Evaluator->"Local",
+  ImageSizeCache->{377.99999999999994`, {3., 9.}}]], "PrintTemporary",
+ CellChangeTimes->{3.8244845822786784`*^9},
+ CellLabel->"During evaluation of In[234]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"pairs", "=", 
+  RowBox[{"MapThread", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Riffle", "[", 
+      RowBox[{"#1", ",", 
+       RowBox[{"StringRiffle", "[", 
+        RowBox[{"#2", ",", "\"\<,\>\""}], "]"}]}], "]"}], "&"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"names", ",", "terms"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8244838672083626`*^9, 3.824483878860916*^9}, {
+   3.824483984229002*^9, 3.824483984900949*^9}, {3.8244840303259706`*^9, 
+   3.824484030935702*^9}, 3.82448423628024*^9, {3.824484291715231*^9, 
+   3.8244842922098403`*^9}, {3.8244845251459827`*^9, 3.8244845707645583`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Riffle", "list", 
+   "\"List expected at position \\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Riffle\\\", \\\"[\\\", RowBox[{\\\"\\\\\\\"Sterling \
+Baird\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"Conceptualization,Methodology,Software,Validation,Formal \
+analysis,Investigation,Data Curation,Writing - Original Draft,Writing - \
+Review & Editing,Visualization\\\\\\\"\\\"}], \\\"]\\\"}]\\).\"", 2, 232, 29, 
+   17473151685504731433, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.824484556622196*^9, 3.8244845613861856`*^9}},
+ CellLabel->"During evaluation of In[232]:="],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Riffle", "list", 
+   "\"List expected at position \\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Riffle\\\", \\\"[\\\", RowBox[{\\\"\\\\\\\"Oliver \
+Johnson\\\\\\\"\\\", \\\",\\\", \\\"\\\\\\\"Supervision,Project \
+administration,Funding acquisition,Conceptualization,Writing - Review & \
+Editing\\\\\\\"\\\"}], \\\"]\\\"}]\\).\"", 2, 232, 30, 17473151685504731433, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.824484556622196*^9, 3.8244845614387245`*^9}},
+ CellLabel->"During evaluation of In[232]:="],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Riffle", "list", 
+   "\"List expected at position \\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Riffle\\\", \\\"[\\\", RowBox[{\\\"\\\\\\\"David \
+Fullwood\\\\\\\"\\\", \\\",\\\", \\\"\\\\\\\"Writing - Review & Editing\\\\\\\
+\"\\\"}], \\\"]\\\"}]\\).\"", 2, 232, 31, 17473151685504731433, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.824484556622196*^9, 3.8244845614937253`*^9}},
+ CellLabel->"During evaluation of In[232]:="],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Riffle\\\", \\\"::\\\", \
+\\\"list\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 232, 32, 17473151685504731433, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.824484556622196*^9, 3.8244845615507812`*^9}},
+ CellLabel->"During evaluation of In[232]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"Riffle", "[", 
+    RowBox[{"\<\"Sterling Baird\"\>", 
+     ",", "\<\"Conceptualization,Methodology,Software,Validation,Formal \
+analysis,Investigation,Data Curation,Writing - Original Draft,Writing - \
+Review & Editing,Visualization\"\>"}], "]"}], ",", 
+   RowBox[{"Riffle", "[", 
+    RowBox[{"\<\"Oliver Johnson\"\>", 
+     ",", "\<\"Supervision,Project administration,Funding \
+acquisition,Conceptualization,Writing - Review & Editing\"\>"}], "]"}], ",", 
+   RowBox[{"Riffle", "[", 
+    RowBox[{"\<\"David Fullwood\"\>", 
+     ",", "\<\"Writing - Review & Editing\"\>"}], "]"}], ",", 
+   RowBox[{"Riffle", "[", 
+    RowBox[{"\<\"Eric Homer\"\>", 
+     ",", "\<\"Funding acquisition,Writing - Review & Editing\"\>"}], "]"}]}],
+   "}"}]], "Output",
+ CellChangeTimes->{
+  3.8244839916012383`*^9, 3.8244840313103228`*^9, 3.8244842365770893`*^9, 
+   3.824484293036213*^9, {3.824484556740138*^9, 3.824484561622774*^9}},
+ CellLabel->"Out[232]="]
+}, Open  ]]
+}, Open  ]],
+
+Cell["Generate CRediT Statement", "Chapter",
+ CellChangeTimes->{{3.824481840891952*^9, 3.8244818473136377`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Code Graveyard", "Title",
+ CellChangeTimes->{{3.8244812971217413`*^9, 3.8244813004002137`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  "\"\<https://docs.google.com/spreadsheets/d/1-JamMGQnN6d8AX_\
+HojonZJMFepMn62gj3m_0BKvUeGM/edit?usp=sharing\>\"", "*)"}]], "Input",
+ CellChangeTimes->{{3.824479813740814*^9, 3.8244798144665847`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", "KeyDrop", "*)"}]], "Input",
+ CellChangeTimes->{{3.8244798491428814`*^9, 3.8244798530185328`*^9}, {
+  3.8244800078106265`*^9, 3.824480008569599*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"parsedURL", "=", 
+   RowBox[{"URLParse", "[", "editURL", "]"}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.8244796482843904`*^9, 3.8244797540595865`*^9}, {
+  3.82448009519693*^9, 3.8244801001989965`*^9}, {3.824480583758372*^9, 
+  3.824480585208933*^9}},
+ CellLabel->"In[26]:="],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"Scheme\"\>", "\[Rule]", "\<\"https\"\>"}], ",", 
+   RowBox[{"\<\"User\"\>", "\[Rule]", "None"}], ",", 
+   RowBox[{"\<\"Domain\"\>", "\[Rule]", "\<\"docs.google.com\"\>"}], ",", 
+   RowBox[{"\<\"Port\"\>", "\[Rule]", "None"}], ",", 
+   RowBox[{"\<\"Path\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\<\"\"\>", ",", "\<\"spreadsheets\"\>", ",", "\<\"d\"\>", 
+      ",", "\<\"1-JamMGQnN6d8AX_HojonZJMFepMn62gj3m_0BKvUeGM\"\>", 
+      ",", "\<\"edit\"\>"}], "}"}]}], ",", 
+   RowBox[{"\<\"Query\"\>", "\[Rule]", 
+    RowBox[{"{", "}"}]}], ",", 
+   RowBox[{"\<\"Fragment\"\>", "\[Rule]", "\<\"gid=2008204346\"\>"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{
+  3.824479714964734*^9, {3.824479745110123*^9, 3.824479754278308*^9}, 
+   3.824480103152119*^9, 3.8244805864589386`*^9},
+ CellLabel->"Out[26]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"StringReplace", "[", 
+   RowBox[{
+    RowBox[{"parsedURL", "[", "\"\<Path\>\"", "]"}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"parsedURL", "[", "\"\<Path\>\"", "]"}], "\[LeftDoubleBracket]", 
+      RowBox[{"-", "1"}], "\[RightDoubleBracket]"}], "\[Rule]", 
+     "\"\<export\>\""}]}], "]"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.8244801429047265`*^9, 3.82448023875535*^9}},
+ CellLabel->"In[13]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"\"\>", ",", "\<\"spreadsheets\"\>", ",", "\<\"d\"\>", 
+   ",", "\<\"1-JamMGQnN6d8AX_HojonZJMFepMn62gj3m_0BKvUeGM\"\>", 
+   ",", "\<\"export\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.824480147458239*^9, 3.8244801815663147`*^9}, {
+  3.824480213627465*^9, 3.824480239781204*^9}},
+ CellLabel->"Out[13]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+     "\[Rule]", 
+     RowBox[{"#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
+    "&"}], "@", 
+   RowBox[{"StringSplit", "[", 
+    RowBox[{
+     RowBox[{"parsedURL", "[", "\"\<Fragment\>\"", "]"}], ",", "\"\<=\>\""}], 
+    "]"}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.824480252360895*^9, 3.82448027364218*^9}, {
+  3.824480871337853*^9, 3.824480905212574*^9}, {3.8244809467430096`*^9, 
+  3.824480973537404*^9}, {3.8244810115333633`*^9, 3.824481024657508*^9}},
+ CellLabel->"In[65]:="],
+
+Cell[BoxData[
+ RowBox[{"\<\"gid\"\>", "\[Rule]", "\<\"2008204346\"\>"}]], "Output",
+ CellChangeTimes->{{3.824480957547717*^9, 3.824480967128369*^9}, 
+   3.824481026063812*^9},
+ CellLabel->"Out[65]="]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+   "url", "=", 
+    "\"\<https://docs.google.com/spreadsheets/d/<KEY>/export?gid=<GID>&format=\
+csv\>\""}], "\[IndentingNewLine]", 
+   RowBox[{"URLDownload", "[", 
+    TagBox[
+     FrameBox["url"],
+     "Placeholder"], "]"}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.824479557220796*^9, 3.8244795786676216`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\"\<Scheme\>\"", "\[Rule]", "\"\<https\>\""}], ",", 
+     RowBox[{"\"\<User\>\"", "\[Rule]", "None"}], ",", 
+     RowBox[{"\"\<Domain\>\"", "\[Rule]", "\"\<docs.google.com\>\""}], ",", 
+     RowBox[{"\"\<Port\>\"", "\[Rule]", "None"}], ",", 
+     RowBox[{"\"\<Path\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<\>\"", ",", "\"\<spreadsheets\>\"", ",", "\"\<d\>\"", ",", 
+        "\"\<1-JamMGQnN6d8AX_HojonZJMFepMn62gj3m_0BKvUeGM\>\"", ",", 
+        "\"\<export\>\""}], "}"}]}], ",", 
+     RowBox[{"\"\<Query\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<gid\>\"", "\[Rule]", "\"\<2008204346\>\""}], ",", 
+        RowBox[{"\"\<format\>\"", "\[Rule]", "\"\<csv\>\""}]}], "}"}]}], ",", 
+     
+     RowBox[{"\"\<Fragment\>\"", "\[Rule]", "None"}]}], 
+    "\[RightAssociation]"}], "//", "FullForm"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.824480791905729*^9, 3.824480792912956*^9}},
+ CellLabel->"In[56]:="],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"Association", "[", 
+    RowBox[{
+     RowBox[{"Rule", "[", 
+      RowBox[{"\"\<Scheme\>\"", ",", "\"\<https\>\""}], "]"}], ",", 
+     RowBox[{"Rule", "[", 
+      RowBox[{"\"\<User\>\"", ",", "None"}], "]"}], ",", 
+     RowBox[{"Rule", "[", 
+      RowBox[{"\"\<Domain\>\"", ",", "\"\<docs.google.com\>\""}], "]"}], ",", 
+     
+     RowBox[{"Rule", "[", 
+      RowBox[{"\"\<Port\>\"", ",", "None"}], "]"}], ",", 
+     RowBox[{"Rule", "[", 
+      RowBox[{"\"\<Path\>\"", ",", 
+       RowBox[{"List", "[", 
+        RowBox[{
+        "\"\<\>\"", ",", "\"\<spreadsheets\>\"", ",", "\"\<d\>\"", ",", 
+         "\"\<1-JamMGQnN6d8AX_HojonZJMFepMn62gj3m_0BKvUeGM\>\"", ",", 
+         "\"\<export\>\""}], "]"}]}], "]"}], ",", 
+     RowBox[{"Rule", "[", 
+      RowBox[{"\"\<Query\>\"", ",", 
+       RowBox[{"List", "[", 
+        RowBox[{
+         RowBox[{"Rule", "[", 
+          RowBox[{"\"\<gid\>\"", ",", "\"\<2008204346\>\""}], "]"}], ",", 
+         RowBox[{"Rule", "[", 
+          RowBox[{"\"\<format\>\"", ",", "\"\<csv\>\""}], "]"}]}], "]"}]}], 
+      "]"}], ",", 
+     RowBox[{"Rule", "[", 
+      RowBox[{"\"\<Fragment\>\"", ",", "None"}], "]"}]}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellChangeTimes->{3.8244807931160107`*^9},
+ CellLabel->"Out[56]//FullForm="]
+}, Open  ]],
+
+Cell["URLParse breaks things up as follows:", "Text",
+ CellChangeTimes->{{3.824482438722664*^9, 3.8244824438161373`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"URLParse", "/@", 
+   RowBox[{"{", 
+    RowBox[{"editURL", ",", "downloadURL"}], "}"}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.8244812013667946`*^9, 3.8244812092338233`*^9}, {
+  3.8244812498335724`*^9, 3.8244812669546537`*^9}},
+ CellLabel->"In[75]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"Scheme\"\>", "\[Rule]", "\<\"https\"\>"}], ",", 
+     RowBox[{"\<\"User\"\>", "\[Rule]", "None"}], ",", 
+     RowBox[{"\<\"Domain\"\>", "\[Rule]", "\<\"docs.google.com\"\>"}], ",", 
+     RowBox[{"\<\"Port\"\>", "\[Rule]", "None"}], ",", 
+     RowBox[{"\<\"Path\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\<\"\"\>", ",", "\<\"spreadsheets\"\>", ",", "\<\"d\"\>", 
+        ",", "\<\"1-JamMGQnN6d8AX_HojonZJMFepMn62gj3m_0BKvUeGM\"\>", 
+        ",", "\<\"edit\"\>"}], "}"}]}], ",", 
+     RowBox[{"\<\"Query\"\>", "\[Rule]", 
+      RowBox[{"{", "}"}]}], ",", 
+     RowBox[{"\<\"Fragment\"\>", "\[Rule]", "\<\"gid=2008204346\"\>"}]}], 
+    "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"Scheme\"\>", "\[Rule]", "\<\"https\"\>"}], ",", 
+     RowBox[{"\<\"User\"\>", "\[Rule]", "None"}], ",", 
+     RowBox[{"\<\"Domain\"\>", "\[Rule]", "\<\"docs.google.com\"\>"}], ",", 
+     RowBox[{"\<\"Port\"\>", "\[Rule]", "None"}], ",", 
+     RowBox[{"\<\"Path\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\<\"\"\>", ",", "\<\"spreadsheets\"\>", ",", "\<\"d\"\>", 
+        ",", "\<\"1-JamMGQnN6d8AX_HojonZJMFepMn62gj3m_0BKvUeGM\"\>", 
+        ",", "\<\"export\"\>"}], "}"}]}], ",", 
+     RowBox[{"\<\"Query\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\<\"gid\"\>", "\[Rule]", "\<\"2008204346\"\>"}], ",", 
+        RowBox[{"\<\"format\"\>", "\[Rule]", "\<\"csv\"\>"}]}], "}"}]}], ",", 
+     
+     RowBox[{"\<\"Fragment\"\>", "\[Rule]", "None"}]}], 
+    "\[RightAssociation]"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.824480285954666*^9, {3.8244807321005316`*^9, 3.8244807367421203`*^9}, 
+   3.82448078102841*^9, 3.8244812109512343`*^9, {3.824481252302312*^9, 
+   3.8244812672827177`*^9}},
+ CellLabel->"Out[75]="]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1140.6, 580.1999999999999},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowStatusArea->"credit-statement.nb last backed up to credit-statement.nb~ \
+on Thu 11 Mar 2021 at 1:39:41 PM",
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (June 19, 2020)",
+StyleDefinitions->"defaultSyntaxHighlight.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 99, 1, 70, "Title",ExpressionUUID->"f68d1edf-d831-44f5-8ea9-a321a095a79c"],
+Cell[682, 25, 246, 5, 70, "Subtitle",ExpressionUUID->"d81c4de4-e4e0-491c-a2b3-6e7a88cbf993"],
+Cell[CellGroupData[{
+Cell[953, 34, 103, 1, 70, "Chapter",ExpressionUUID->"59dbdf6e-2a7f-4ece-8f00-2081d754c52c"],
+Cell[CellGroupData[{
+Cell[1081, 39, 102, 1, 70, "Section",ExpressionUUID->"bb3b8873-c413-4199-80f8-47a0273608ab"],
+Cell[1186, 42, 2652, 63, 70, "Input",ExpressionUUID->"016058c1-6436-44c7-af9c-fd3299283e45",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3875, 110, 143, 2, 70, "Section",ExpressionUUID->"1c1e0014-740f-4d5b-9ed2-f225933c7f10"],
+Cell[4021, 114, 137, 1, 70, "Text",ExpressionUUID->"0352634d-e656-4ae0-a3bd-bf38d7a4f01d"],
+Cell[4161, 117, 391, 9, 70, "Input",ExpressionUUID->"5d63f6a1-d0d4-49be-887c-760d72b621e5"],
+Cell[CellGroupData[{
+Cell[4577, 130, 197, 4, 70, "Input",ExpressionUUID->"7c3af74e-2c7f-4e4b-968f-e2d63088251f"],
+Cell[4777, 136, 335, 6, 70, "Output",ExpressionUUID->"c6862ec8-5730-4177-a3b0-1fd1807951b1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5149, 147, 102, 1, 70, "Subsection",ExpressionUUID->"c07b1485-f33b-4d24-8078-68ed6bf0e983"],
+Cell[CellGroupData[{
+Cell[5276, 152, 420, 10, 70, "Input",ExpressionUUID->"073e7d0b-ccde-4b60-9dc0-8b39f85355b4"],
+Cell[5699, 164, 238, 4, 70, "Output",ExpressionUUID->"5a05706b-cc9e-405e-8e32-97f21d7497bd"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6010, 176, 105, 1, 70, "Chapter",ExpressionUUID->"6b3b5a39-3c11-41d9-97ad-21f06f1a6e5e"],
+Cell[CellGroupData[{
+Cell[6140, 181, 92, 1, 70, "Section",ExpressionUUID->"04f5c1b7-03aa-4171-950a-15a1abdee821"],
+Cell[6235, 184, 204, 4, 70, "Text",ExpressionUUID->"7ba061f5-2dba-414e-877c-87185a4ae0a3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6476, 193, 124, 1, 70, "Section",ExpressionUUID->"0ffe12ac-43e0-4102-aa04-c513ccb87bae"],
+Cell[CellGroupData[{
+Cell[6625, 198, 100, 1, 70, "Subsection",ExpressionUUID->"6252c323-7731-4799-aada-def12f51ce02"],
+Cell[CellGroupData[{
+Cell[6750, 203, 446, 8, 70, "Input",ExpressionUUID->"76de2cbb-3105-4067-bfff-b78db2a009ee"],
+Cell[7199, 213, 493, 8, 70, "Output",ExpressionUUID->"733ee5c2-aed1-42e3-bd06-b977a116f28d"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7753, 228, 152, 2, 70, "Section",ExpressionUUID->"498135b9-67e2-4525-82e3-6d8c1e62ae76"],
+Cell[7908, 232, 307, 7, 70, "Input",ExpressionUUID->"29d1fb57-3e75-46ba-ba40-ee827e5f813f"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8264, 245, 104, 1, 70, "Chapter",ExpressionUUID->"68841da6-4409-4cc0-ab6d-a53a658e7c24"],
+Cell[CellGroupData[{
+Cell[8393, 250, 592, 14, 70, "Input",ExpressionUUID->"f12aa2cb-a270-41b9-ba7e-977be39560c6"],
+Cell[8988, 266, 470, 9, 70, "Output",ExpressionUUID->"c7181fca-dfb4-4e3e-80c2-c6c8fc7a3b7a"],
+Cell[9461, 277, 4547, 71, 70, "Output",ExpressionUUID->"b83a3801-34d9-4def-9532-5d5a781d6f8a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14045, 353, 415, 10, 70, "Input",ExpressionUUID->"4687c574-f536-4cc9-9bea-951de8dfc9d1"],
+Cell[14463, 365, 269, 6, 70, "Output",ExpressionUUID->"c19c03c6-99b8-483b-94cc-1cefb334ff72"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14769, 376, 127, 3, 70, "Input",ExpressionUUID->"6619b8e8-cb3a-4d10-a65a-97fda04679d5"],
+Cell[14899, 381, 560, 8, 70, "Output",ExpressionUUID->"515acdc9-4dcf-4aef-bc8d-21f4611b3198"]
+}, Open  ]],
+Cell[15474, 392, 103, 1, 70, "Input",ExpressionUUID->"ae3f10d6-3445-45de-9072-39d6d90ec3f1"],
+Cell[CellGroupData[{
+Cell[15602, 397, 1619, 40, 70, "Input",ExpressionUUID->"9905b566-d8d7-43ac-8284-20968cf0dde7"],
+Cell[17224, 439, 1457, 26, 70, "Output",ExpressionUUID->"5d0c56fc-537a-4158-a277-32d74bdced04"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18718, 470, 190, 4, 70, "Input",ExpressionUUID->"787e26cc-074e-403b-8fe8-172039395d6d"],
+Cell[18911, 476, 393, 9, 70, "PrintTemporary",ExpressionUUID->"64704ab1-5229-4683-b50a-6780499f9e97"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19341, 490, 631, 14, 70, "Input",ExpressionUUID->"5cf92d09-7b5f-48ee-a465-d2fd835998b7"],
+Cell[19975, 506, 639, 12, 70, "Message",ExpressionUUID->"0a72cb91-bcd3-4800-9cf6-d80239b18834"],
+Cell[20617, 520, 577, 11, 70, "Message",ExpressionUUID->"5e1e1358-d8b0-4267-ad1f-4b19cce258d4"],
+Cell[21197, 533, 498, 9, 70, "Message",ExpressionUUID->"d92a7185-6475-4f93-93b7-3e6eb1ba71e5"],
+Cell[21698, 544, 419, 8, 70, "Message",ExpressionUUID->"02e8856a-8dcd-4bd7-b073-bb5a1a60000c"],
+Cell[22120, 554, 992, 22, 70, "Output",ExpressionUUID->"8f52f929-99b7-4bd4-88dd-636ac7a27864"]
+}, Open  ]]
+}, Open  ]],
+Cell[23139, 580, 112, 1, 70, "Chapter",ExpressionUUID->"adc73694-3256-4921-bb4b-ace057ee95fb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23288, 586, 101, 1, 70, "Title",ExpressionUUID->"c413b4ef-21ee-4fb8-9e7b-215ae7b1615d"],
+Cell[23392, 589, 231, 4, 70, "Input",ExpressionUUID->"7a797e18-ad60-454e-bb4f-b84fb7ef4a52"],
+Cell[23626, 595, 178, 3, 70, "Input",ExpressionUUID->"25446699-2942-49b0-b338-f859e51c4113"],
+Cell[CellGroupData[{
+Cell[23829, 602, 317, 7, 70, "Input",ExpressionUUID->"eb0c471f-7449-43e4-b28b-7c00d31467d4"],
+Cell[24149, 611, 894, 19, 70, "Output",ExpressionUUID->"248f9308-e745-4a82-80b9-9fc80c38c4d3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25080, 635, 448, 11, 70, "Input",ExpressionUUID->"153f9dbe-b915-4340-9cfd-0536a53b9d72"],
+Cell[25531, 648, 350, 7, 70, "Output",ExpressionUUID->"de4a035c-6282-46e8-a533-b0b47f1213fa"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25918, 660, 643, 16, 70, "Input",ExpressionUUID->"0c0c30ee-9c70-4d7f-b662-751953ad9c8f"],
+Cell[26564, 678, 199, 4, 70, "Output",ExpressionUUID->"c73504f7-20e2-400a-ae86-73c92f4195fc"]
+}, Open  ]],
+Cell[26778, 685, 366, 11, 70, "Input",ExpressionUUID->"e70ed2cd-bc51-40d9-a3b8-7388be941499"],
+Cell[CellGroupData[{
+Cell[27169, 700, 1054, 24, 70, "Input",ExpressionUUID->"e68db349-ed38-44ea-96a3-9382395620ac"],
+Cell[28226, 726, 1385, 37, 70, "Output",ExpressionUUID->"96e1b134-78ee-4423-9189-bd0ec8acaba7"]
+}, Open  ]],
+Cell[29626, 766, 121, 1, 70, "Text",ExpressionUUID->"ddacb3ce-68f5-4d09-94eb-26aa7baef2a1"],
+Cell[CellGroupData[{
+Cell[29772, 771, 294, 7, 70, "Input",ExpressionUUID->"69c1bbc3-0bc8-45d9-aa20-21fbe9f64146"],
+Cell[30069, 780, 1898, 41, 70, "Output",ExpressionUUID->"be03274f-339a-40ea-8f90-a5a07063b89d"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
