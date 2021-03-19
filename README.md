@@ -22,13 +22,13 @@ Sterling has video demonstrations for each software package and explains how the
 
 ## Intro
 
-An automated workflow might look something like the following:
-<img src=diagram/auto-paper-new.png width=600>
+| An automated workflow might look something like: | My personal workflow looks like the following: |
+| --- | --- |
+| <img src=diagram/auto-paper-new.png width=600> | <img src=diagram/auto-paper-new12-protocols.png width=650> |
 
-My personal workflow looks like the following:  
-<img src=diagram/auto-paper-new12-protocols.png width=650>
+LaTeX and Git are the bread and butter of an automated scientific research paper. While you can use some aspects of these tips/tricks without LaTeX/Git (e.g. MathPix Snipping Tool), many others are highly integrated. Learning LaTeX and Git might have a startup cost of 10-100 hrs (depending on desired skill level), but could easily save you 100's of hrs in the first year or two of you using it.
 
-LaTeX and Git are the bread and butter of an automated scientific research paper. While you can use some aspects of these tips/tricks without LaTeX/Git (e.g. MathPix Snipping Tool), many others are highly integrated. Learning LaTeX and Git might have a startup cost of 10-100 hrs (depending on desired skill level), but could easily save you 100's of hrs in the first year or two of you using it. The aim of "auto-paper" is to enable to you accelerate your publication rate and improve publication quality.
+**The aim of "auto-paper" is to enable to you accelerate your publication rate and improve publication quality.**
 
 ## LaTeX Document Typesetting
 LaTeX allows you to focus more on content rather than formatting.
@@ -44,8 +44,11 @@ See [Git Teaching](git-teaching)
 
 ### python
 Plotting videos by Dr. Taylor Sparks: Python to make nice figures.
+
 [Part I](https://www.youtube.com/watch?v=rUV8VFbUi_U)
+
 [Part II](https://www.youtube.com/watch?v=Y8JWfGjj2ok)
+
 [Part III](https://www.youtube.com/watch?v=fwZahTYfyxA)
 
 ### MATLAB
