@@ -20,7 +20,8 @@
 
 
 (* ::Input::Initialization:: *)
-EditToExportURL[url_]:=Append[KeyDrop[#,{"Path","Query","Fragment"}],{"Path"->StringReplace[#["Path"],#["Path"][[-1]]->"export"],"Query"->{#[[1]]->#[[2]]&@StringSplit[parsedURL["Fragment"],"="],"format"->"csv"},"Fragment"->None}]&@URLParse@url//URLBuild
+Clear@EditToExportURL
+EditToExportURL[url_]:=Append[KeyDrop[#,{"Path","Query","Fragment"}],{"Path"->StringReplace[#["Path"],#["Path"][[-1]]->"export"],"Query"->{#[[1]]->#[[2]]&@StringSplit[#["Fragment"],"="],"format"->"csv"},"Fragment"->None}]&@URLParse@url//URLBuild
 EditToExportURL::usage="EditToExportURL[url] converts a Google Sheets spreadsheet edit URL into an export (i.e. download) URL by breaking the URLs into parts via URLParse, replacing values in the Association, and building it back up via URLBuild.";
 
 

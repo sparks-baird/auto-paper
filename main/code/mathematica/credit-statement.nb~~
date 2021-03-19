@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     38632,        949]
-NotebookOptionsPosition[     31995,        825]
-NotebookOutlinePosition[     32482,        842]
-CellTagsIndexPosition[     32439,        839]
+NotebookDataLength[     61318,       1478]
+NotebookOptionsPosition[     53582,       1328]
+NotebookOutlinePosition[     54069,       1345]
+CellTagsIndexPosition[     54026,       1342]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -32,6 +32,482 @@ Parse Google Form responses from authors to form a Contributor Roles Taxonomy \
 
 Cell[CellGroupData[{
 
+Cell["Setup", "Chapter",
+ CellChangeTimes->{{3.8244904287041445`*^9, 3.8244904290890255`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"<<", "TeXport`"}]], "Input",
+ CellChangeTimes->{{3.8244904308991976`*^9, 3.824490433145107*^9}},
+ CellLabel->"In[12]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "TeXport"}]], "Input",
+ CellChangeTimes->{{3.8244938830298414`*^9, 3.824493887264244*^9}, {
+  3.8244944717960405`*^9, 3.824494475171035*^9}, {3.8244945610802774`*^9, 
+  3.824494574283409*^9}},
+ CellLabel->"In[14]:="],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[
+   FrameBox[
+    DynamicModuleBox[{System`InformationDump`open$$ = False, 
+     System`InformationDump`mouseOver$$ = False}, 
+     PaneSelectorBox[{True->
+      TagBox[GridBox[{
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox["\<\" Symbol\"\>", "InformationTitleText",
+             StripOnInput->False,
+             BaseStyle -> None],
+            FrameMargins->{{4, 0}, {-1, 1}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           PaneBox[
+            
+            StyleBox["\<\"To set default options for later calls to TeXport, \
+use e.g. SetOptions[TeXport,Export\[Rule]True]\\nTeXport[fname,eqn,keyvalues] \
+returns a TeX-formatted sentence corresponding to an expression (eqn) and a \
+definition of variables (keyvalues) that immediately follows in a sentence \
+format. E.g.  \\n\\\"\\\\begin{equation}  \\n\\t\\\\label{eq:texport-example} \
+ \\n\\ta+b=c  \\n\\\\end{equation}  \\nwhere $a$, $b$, and $c$ represent \
+apples, bananas, and cantaloupe, \
+respectively.\\\"\\nTeXport[fname,eqn,keyvalues,Print\[Rule]True] prints a \
+TeX-formatted expression to $Output with key-value pair \
+definitions.\\nTeXport[fname,eqn,,Print\[Rule]True] prints a TeX-formatted \
+expression to $Output without key-value \
+pairs.\\nTeXport[fname,eqn,keyvalues,Export\[Rule]True] exports a \
+TeX-formatted expression to <fname>.tex.\\nTeXport[fname,eqn,keyvalues,Export\
+\[Rule]True,Folder\[Rule]\\\"equations\\\"] exports a TeX-formatted \
+expression to equations\\\\<fname>.tex.\"\>", "InformationUsageText",
+             StripOnInput->False,
+             LineSpacing->{1.5, 1.5, 3.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False]},
+         {
+          PaneBox[GridBox[{
+             {
+              
+              DynamicModuleBox[{System`InformationDump`open$$ = {
+               False, False, False, False, False, False, False, False, False, 
+                False, False, False}}, 
+               StyleBox[GridBox[{
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Definitions\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"Definitions\"",
+                    TooltipStyle->"TextStyling"],
+                    Annotation[#, "Definitions", "Tooltip"]& ], GridBox[{
+                    {
+                    RowBox[{
+                    RowBox[{"TeXport", "[", 
+                    RowBox[{
+                    "TeXport`Private`fname_", ",", "TeXport`Private`eqn_", 
+                    ",", "TeXport`Private`keyvalues_", ",", 
+                    RowBox[{"OptionsPattern", "[", "]"}]}], "]"}], ":=", 
+                    RowBox[{"Module", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "TeXport`Private`folder", ",", "TeXport`Private`printQ", 
+                    ",", "TeXport`Private`exportQ", ",", 
+                    "TeXport`Private`fnametxt", ",", 
+                    "TeXport`Private`fnametex", ",", 
+                    "TeXport`Private`fpathtxt", ",", 
+                    "TeXport`Private`fpathtex", ",", "TeXport`Private`txt", 
+                    ",", "TeXport`Private`keys", ",", 
+                    "TeXport`Private`values"}], "}"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "TeXport`Private`printQ", ",", "TeXport`Private`exportQ", 
+                    ",", "TeXport`Private`folder"}], "}"}], "=", 
+                    RowBox[{"OptionValue", "[", 
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"Print\"\>", ",", "\<\"Export\"\>", 
+                    ",", "\<\"Folder\"\>"}], "}"}], "]"}]}], ";", 
+                    RowBox[{"TeXport`Private`fnametxt", "=", 
+                    RowBox[{"TeXport`Private`fname", "<>", "\<\".txt\"\>"}]}],
+                     ";", 
+                    RowBox[{"TeXport`Private`fnametex", "=", 
+                    RowBox[{"TeXport`Private`fname", "<>", "\<\".tex\"\>"}]}],
+                     ";", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "TeXport`Private`fpathtxt", ",", 
+                    "TeXport`Private`fpathtex"}], "}"}], "=", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"FileNameJoin", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"TeXport`Private`folder", ",", "#1"}], "}"}], 
+                    "]"}], "&"}], ")"}], "/@", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "TeXport`Private`fnametxt", ",", 
+                    "TeXport`Private`fnametex"}], "}"}]}]}], ";", 
+                    RowBox[{"TeXport`Private`sentence", "=", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Length", "[", "TeXport`Private`keyvalues", "]"}],
+                     ">", "0"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "TeXport`Private`keys", ",", "TeXport`Private`values"}], 
+                    "}"}], "=", "TeXport`Private`keyvalues"}], ";", 
+                    RowBox[{"\<\"\\n\"\>", "<>", 
+                    RowBox[{"KeyValueToSentence", "[", 
+                    RowBox[{
+                    "TeXport`Private`keys", ",", "TeXport`Private`values"}], 
+                    "]"}]}]}], ",", "\<\"\"\>"}], "]"}]}], ";", 
+                    RowBox[{"TeXport`Private`txt", "=", 
+                    
+                    RowBox[{"\<\"\\\\begin{equation} \\\\label{eq:\"\>", "<>",
+                     "TeXport`Private`fname", "<>", "\<\"}\\n\\t\"\>", "<>", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{"TeXForm", "[", "TeXport`Private`eqn", "]"}], 
+                    "]"}], "<>", "\<\"\\n\\\\end{equation}\"\>", "<>", 
+                    "TeXport`Private`sentence"}]}], ";", 
+                    RowBox[{"If", "[", 
+                    RowBox[{"TeXport`Private`exportQ", ",", 
+                    RowBox[{
+                    RowBox[{"Export", "[", 
+                    RowBox[{
+                    "TeXport`Private`fpathtxt", ",", "TeXport`Private`txt"}], 
+                    "]"}], ";", 
+                    RowBox[{"RenameFile", "[", 
+                    RowBox[{
+                    "TeXport`Private`fpathtxt", ",", 
+                    "TeXport`Private`fpathtex", ",", 
+                    RowBox[{"OverwriteTarget", "\[Rule]", "True"}]}], "]"}]}],
+                     ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"##1", "&"}], ")"}], "[", "]"}]}], "]"}], ";", 
+                    RowBox[{"If", "[", 
+                    RowBox[{"TeXport`Private`printQ", ",", 
+                    RowBox[{"Print", "[", "TeXport`Private`txt", "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"##1", "&"}], ")"}], "[", "]"}]}], "]"}], ";", 
+                    "TeXport`Private`txt"}]}], "]"}]}]}
+                    },
+                    DefaultBaseStyle->"Column",
+                    GridBoxAlignment->{"Columns" -> {{Left}}},
+                    
+                    GridBoxItemSize->{
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]},
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Options\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"Options\"",
+                    TooltipStyle->"TextStyling"],
+                    Annotation[#, "Options", "Tooltip"]& ], 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Print", "\[Rule]", "False"}], ",", 
+                    RowBox[{"Export", "\[Rule]", "False"}], ",", 
+                    RowBox[{
+                    "TeXport`Private`Folder", "\[Rule]", "\<\".\"\>"}]}], 
+                    "}"}]},
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Attributes\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"Attributes\"",
+                    TooltipStyle->"TextStyling"],
+                    Annotation[#, "Attributes", "Tooltip"]& ], 
+                   RowBox[{"{", "Protected", "}"}]},
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Full Name\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"FullName\"",
+                    TooltipStyle->"TextStyling"],
+                    
+                    Annotation[#, "FullName", 
+                    "Tooltip"]& ], "\<\"TeXport`TeXport\"\>"}
+                 },
+                 AutoDelete->False,
+                 GridBoxAlignment->{"Columns" -> {Right, Left}},
+                 GridBoxDividers->None,
+                 GridBoxItemSize->{"Columns" -> {Automatic, Automatic}},
+                 GridBoxSpacings->{"Columns" -> {
+                    Offset[0.27999999999999997`], {
+                    Offset[0.5599999999999999]}, 
+                    Offset[0.27999999999999997`]}, "Rows" -> {
+                    Offset[0.2], {
+                    Offset[0.8]}, 
+                    Offset[0.2]}}], "DialogStyle",
+                StripOnInput->False],
+               DynamicModuleValues:>{}]}
+            },
+            DefaultBaseStyle->"Column",
+            GridBoxAlignment->{"Columns" -> {{Left}}},
+            GridBoxDividers->{"Columns" -> {{False}}, "Rows" -> {{False}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {
+                Offset[0.27999999999999997`], {
+                 Offset[0.5599999999999999]}, 
+                Offset[0.27999999999999997`]}, "Rows" -> {
+                Offset[0.2], {
+                 Offset[3.6]}, 
+                Offset[0.2]}}],
+           FrameMargins->6], ""},
+         {
+          ItemBox[
+           TagBox[
+            ButtonBox[
+             PaneSelectorBox[{False->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "UpPointerOpener"]], True->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "UpPointerOpenerHot"]]}, Dynamic[
+              System`InformationDump`mouseOver$$]],
+             Alignment->Left,
+             Appearance->{"Default" -> None},
+             
+             ButtonFunction:>FEPrivate`Set[
+              System`InformationDump`open$$, False],
+             Evaluator->Automatic,
+             FrameMargins->{{9, 0}, {0, 0}},
+             ImageMargins->0,
+             ImageSize->Full,
+             Method->"Preemptive"],
+            
+            EventHandlerTag[{
+             "MouseEntered" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
+              "MouseExited" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
+              Method -> "Preemptive", PassEventsDown -> Automatic, 
+              PassEventsUp -> True}]],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], "\[SpanFromLeft]"}
+        },
+        AutoDelete->False,
+        FrameStyle->Directive[
+          GrayLevel[0.8], 
+          Thickness[Tiny]],
+        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
+        GridBoxDividers->{
+         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"], False->
+      TagBox[GridBox[{
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox["\<\" Symbol\"\>", "InformationTitleText",
+             StripOnInput->False],
+            FrameMargins->{{4, 0}, {-1, 1}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           PaneBox[
+            
+            StyleBox["\<\"To set default options for later calls to TeXport, \
+use e.g. SetOptions[TeXport,Export\[Rule]True]\\nTeXport[fname,eqn,keyvalues] \
+returns a TeX-formatted sentence corresponding to an expression (eqn) and a \
+definition of variables (keyvalues) that immediately follows in a sentence \
+format. E.g.  \\n\\\"\\\\begin{equation}  \\n\\t\\\\label{eq:texport-example} \
+ \\n\\ta+b=c  \\n\\\\end{equation}  \\nwhere $a$, $b$, and $c$ represent \
+apples, bananas, and cantaloupe, \
+respectively.\\\"\\nTeXport[fname,eqn,keyvalues,Print\[Rule]True] prints a \
+TeX-formatted expression to $Output with key-value pair \
+definitions.\\nTeXport[fname,eqn,,Print\[Rule]True] prints a TeX-formatted \
+expression to $Output without key-value \
+pairs.\\nTeXport[fname,eqn,keyvalues,Export\[Rule]True] exports a \
+TeX-formatted expression to <fname>.tex.\\nTeXport[fname,eqn,keyvalues,Export\
+\[Rule]True,Folder\[Rule]\\\"equations\\\"] exports a TeX-formatted \
+expression to equations\\\\<fname>.tex.\"\>", "InformationUsageText",
+             StripOnInput->False,
+             LineSpacing->{1.5, 1.5, 3.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           TagBox[
+            ButtonBox[
+             PaneSelectorBox[{False->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "DownPointerOpener"],
+               ImageSizeCache->{10., {3., 7.}}], True->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "DownPointerOpenerHot"],
+               ImageSizeCache->{10., {3., 7.}}]}, Dynamic[
+              System`InformationDump`mouseOver$$]],
+             Alignment->Left,
+             Appearance->{"Default" -> None},
+             
+             ButtonFunction:>FEPrivate`Set[
+              System`InformationDump`open$$, True],
+             Evaluator->Automatic,
+             FrameMargins->{{9, 0}, {0, 0}},
+             ImageMargins->0,
+             ImageSize->Full,
+             Method->"Preemptive"],
+            
+            EventHandlerTag[{
+             "MouseEntered" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
+              "MouseExited" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
+              Method -> "Preemptive", PassEventsDown -> Automatic, 
+              PassEventsUp -> True}]],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], "\[SpanFromLeft]"}
+        },
+        AutoDelete->False,
+        FrameStyle->Directive[
+          GrayLevel[0.8], 
+          Thickness[Tiny]],
+        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
+        GridBoxDividers->{
+         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"]}, Dynamic[System`InformationDump`open$$],
+      BaselinePosition->Baseline,
+      FrameMargins->0,
+      ImageSize->Automatic],
+     DynamicModuleValues:>{}],
+    BaseStyle->"InformationGridFrame",
+    StripOnInput->False], "InformationGridPlain",
+   StripOnInput->False],
+  InformationData[
+   Association[
+   "ObjectType" -> "Symbol", "Usage" -> 
+    "To set default options for later calls to TeXport, use e.g. \
+SetOptions[TeXport,Export\[Rule]True]\nTeXport[fname,eqn,keyvalues] returns a \
+TeX-formatted sentence corresponding to an expression (eqn) and a definition \
+of variables (keyvalues) that immediately follows in a sentence format. E.g.  \
+\n\"\\begin{equation}  \n\t\\label{eq:texport-example}  \n\ta+b=c  \n\
+\\end{equation}  \nwhere $a$, $b$, and $c$ represent apples, bananas, and \
+cantaloupe, respectively.\"\nTeXport[fname,eqn,keyvalues,Print\[Rule]True] \
+prints a TeX-formatted expression to $Output with key-value pair definitions.\
+\nTeXport[fname,eqn,,Print\[Rule]True] prints a TeX-formatted expression to \
+$Output without key-value pairs.\n\
+TeXport[fname,eqn,keyvalues,Export\[Rule]True] exports a TeX-formatted \
+expression to <fname>.tex.\n\
+TeXport[fname,eqn,keyvalues,Export\[Rule]True,Folder\[Rule]\"equations\"] \
+exports a TeX-formatted expression to equations\\<fname>.tex.", 
+    "Documentation" -> None, "OwnValues" -> None, "UpValues" -> None, 
+    "DownValues" -> 
+    Information`InformationValueForm[
+     DownValues, TeXport`TeXport, {TeXport`TeXport[
+         Pattern[TeXport`Private`fname, 
+          Blank[]], 
+         Pattern[TeXport`Private`eqn, 
+          Blank[]], 
+         Pattern[TeXport`Private`keyvalues, 
+          Blank[]], 
+         OptionsPattern[]] :> 
+       Module[{TeXport`Private`folder, TeXport`Private`printQ, 
+          TeXport`Private`exportQ, TeXport`Private`fnametxt, 
+          TeXport`Private`fnametex, TeXport`Private`fpathtxt, 
+          TeXport`Private`fpathtex, TeXport`Private`txt, TeXport`Private`keys,
+           TeXport`Private`values}, {
+           TeXport`Private`printQ, TeXport`Private`exportQ, 
+            TeXport`Private`folder} = 
+          OptionValue[{"Print", "Export", "Folder"}]; 
+         TeXport`Private`fnametxt = StringJoin[TeXport`Private`fname, ".txt"]; 
+         TeXport`Private`fnametex = 
+          StringJoin[TeXport`Private`fname, ".tex"]; {
+           TeXport`Private`fpathtxt, TeXport`Private`fpathtex} = 
+          Map[FileNameJoin[{TeXport`Private`folder, #}]& , {
+            TeXport`Private`fnametxt, TeXport`Private`fnametex}]; 
+         TeXport`Private`sentence = 
+          If[Length[TeXport`Private`keyvalues] > 
+            0, {TeXport`Private`keys, TeXport`Private`values} = 
+             TeXport`Private`keyvalues; StringJoin["\n", 
+              TeXport`KeyValueToSentence[
+              TeXport`Private`keys, TeXport`Private`values]], ""]; 
+         TeXport`Private`txt = 
+          StringJoin[
+           "\\begin{equation} \\label{eq:", TeXport`Private`fname, "}\n\t", 
+            ToString[
+             TeXForm[TeXport`Private`eqn]], "\n\\end{equation}", 
+            TeXport`Private`sentence]; 
+         If[TeXport`Private`exportQ, 
+           Export[TeXport`Private`fpathtxt, TeXport`Private`txt]; 
+           RenameFile[
+            TeXport`Private`fpathtxt, TeXport`Private`fpathtex, 
+             OverwriteTarget -> True], 
+           (SlotSequence[1]& )[]]; If[TeXport`Private`printQ, 
+           Print[TeXport`Private`txt], 
+           (SlotSequence[1]& )[]]; TeXport`Private`txt]}], "SubValues" -> 
+    None, "DefaultValues" -> None, "NValues" -> None, "FormatValues" -> None, 
+    "Options" -> {
+     Print -> False, Export -> False, TeXport`Private`Folder -> "."}, 
+    "Attributes" -> {Protected}, "FullName" -> "TeXport`TeXport"], 
+   False]]], "Output",
+ CellChangeTimes->{
+  3.824494574658393*^9, {3.824494722024806*^9, 3.8244947502263155`*^9}},
+ CellLabel->"Out[14]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Names", "@", "\"\<TeXport`*\>\""}]], "Input",
+ CellChangeTimes->{{3.824490769307551*^9, 3.824490785711548*^9}},
+ CellLabel->"In[15]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"KeyToSubjectPredicate\"\>", ",", "\<\"KeyValueToSentence\"\>", 
+   ",", "\<\"MathText\"\>", ",", "\<\"OpenWriteTeX\"\>", 
+   ",", "\<\"TeXport\"\>", ",", "\<\"ValueToObject\"\>", ",", "\<\"WL\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.82449077728214*^9, 3.8244907859451895`*^9}, 
+   3.8244910618398905`*^9, 3.8244938497333355`*^9, 3.8244947794962015`*^9},
+ CellLabel->"Out[15]="]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell["Helper Functions", "Chapter",
  CellChangeTimes->{{3.824481854798043*^9, 3.8244818561261697`*^9}}],
 
@@ -41,6 +517,7 @@ Cell["EditToExportURL", "Section",
  CellChangeTimes->{{3.8244819497825937`*^9, 3.824481951984687*^9}}],
 
 Cell[BoxData[{
+ RowBox[{"Clear", "@", "EditToExportURL"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"EditToExportURL", "[", "url_", "]"}], ":=", 
   RowBox[{
@@ -79,7 +556,7 @@ Cell[BoxData[{
               "&"}], "@", 
              RowBox[{"StringSplit", "[", 
               RowBox[{
-               RowBox[{"parsedURL", "[", "\"\<Fragment\>\"", "]"}], ",", 
+               RowBox[{"#", "[", "\"\<Fragment\>\"", "]"}], ",", 
                "\"\<=\>\""}], "]"}]}], ",", 
             RowBox[{"\"\<format\>\"", "\[Rule]", "\"\<csv\>\""}]}], "}"}]}], 
          ",", 
@@ -102,8 +579,10 @@ URLBuild.\>\""}], ";"}]}], "Input",
    3.82448085370057*^9}, 3.8244810440410304`*^9, {3.824481408837677*^9, 
    3.824481410217806*^9}, {3.82448201573048*^9, 3.8244820207429075`*^9}, {
    3.824482173537155*^9, 3.8244821789492345`*^9}, {3.82448235334713*^9, 
-   3.8244824203786407`*^9}, 3.8244835749644575`*^9},
- CellLabel->"In[143]:="]
+   3.8244824203786407`*^9}, 3.8244835749644575`*^9, {3.824491083933649*^9, 
+   3.824491084293017*^9}, {3.824491133793049*^9, 3.824491139074295*^9}, {
+   3.824491247013932*^9, 3.8244912869045563`*^9}},
+ CellLabel->"In[1]:="]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -124,23 +603,27 @@ HojonZJMFepMn62gj3m_0BKvUeGM/edit#gid=2008204346\>\""}], ";"}]], "Input",
  CellChangeTimes->{{3.8244805770087605`*^9, 3.8244805798993444`*^9}, {
   3.824481182557931*^9, 3.8244811827189565`*^9}, {3.8244824732071047`*^9, 
   3.8244824762273293`*^9}},
- CellLabel->"In[145]:="],
+ CellLabel->"In[16]:="],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"downloadURL", "=", 
+ RowBox[{"exportURL", "=", 
   RowBox[{"EditToExportURL", "@", "editURL"}]}]], "Input",
- CellChangeTimes->{{3.8244818979343224`*^9, 3.8244819321988688`*^9}},
- CellLabel->"In[146]:="],
+ CellChangeTimes->{{3.8244818979343224`*^9, 3.8244819321988688`*^9}, {
+  3.82449118023265*^9, 3.824491180951437*^9}},
+ CellLabel->"In[17]:="],
 
 Cell[BoxData["\<\"https://docs.google.com/spreadsheets/d/1-JamMGQnN6d8AX_\
 HojonZJMFepMn62gj3m_0BKvUeGM/export?gid=2008204346&format=csv\"\>"], "Output",\
 
- CellChangeTimes->{3.824481901644432*^9, 3.8244819344345927`*^9, 
-  3.8244824779437704`*^9, 3.8244835768556423`*^9},
+ CellChangeTimes->{
+  3.824481901644432*^9, 3.8244819344345927`*^9, 3.8244824779437704`*^9, 
+   3.8244835768556423`*^9, {3.8244910647305207`*^9, 3.824491087793015*^9}, 
+   3.824491141652388*^9, 3.8244912552639008`*^9, 3.824491288795154*^9, 
+   3.8244948450755053`*^9},
  Background->RGBColor[0.87, 0.94, 1],
- CellLabel->"Out[146]="]
+ CellLabel->"Out[17]="]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -160,13 +643,14 @@ HojonZJMFepMn62gj3m_0BKvUeGM/export?gid=2008204346&format=csv\>\""}],
  RowBox[{"exportURL", "===", "checkURL"}]}], "Input",
  CellChangeTimes->{{3.824481393084121*^9, 3.824481405812005*^9}, {
   3.8244824800846977`*^9, 3.824482483834619*^9}},
- CellLabel->"In[147]:="],
+ CellLabel->"In[18]:="],
 
 Cell[BoxData["True"], "Output",
  CellChangeTimes->{{3.8244813972669554`*^9, 3.8244814146512537`*^9}, 
-   3.824481935012686*^9, 3.8244824842562804`*^9, 3.8244835774557304`*^9},
+   3.824481935012686*^9, 3.8244824842562804`*^9, 3.8244835774557304`*^9, 
+   3.8244912956857767`*^9, 3.824494845562011*^9},
  Background->RGBColor[0.87, 0.94, 1],
- CellLabel->"Out[148]="]
+ CellLabel->"Out[19]="]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -209,7 +693,7 @@ Cell[BoxData[
   3.8244806479736433`*^9}, {3.824480713301092*^9, 3.824480715430312*^9}, {
   3.824481325809046*^9, 3.824481328839968*^9}, {3.824481359937385*^9, 
   3.8244813673588295`*^9}},
- CellLabel->"In[149]:="],
+ CellLabel->"In[20]:="],
 
 Cell[BoxData["\<\"https://docs.google.com/spreadsheets/d/1-JamMGQnN6d8AX_\
 HojonZJMFepMn62gj3m_0BKvUeGM/export?gid=2008204346&format=csv\"\>"], "Output",\
@@ -218,8 +702,9 @@ HojonZJMFepMn62gj3m_0BKvUeGM/export?gid=2008204346&format=csv\"\>"], "Output",\
   3.824480556215728*^9, {3.824480592412094*^9, 3.824480648161089*^9}, {
    3.8244806916664953`*^9, 3.8244807249798746`*^9}, 3.824480779267004*^9, 
    3.8244808197573943`*^9, 3.824481051050268*^9, {3.824481362499454*^9, 
-   3.824481367827615*^9}, 3.8244814118045206`*^9, 3.824483578094251*^9},
- CellLabel->"Out[149]="]
+   3.824481367827615*^9}, 3.8244814118045206`*^9, 3.824483578094251*^9, 
+   3.824491301217025*^9, 3.8244948462753897`*^9},
+ CellLabel->"Out[20]="]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -237,7 +722,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.8244814755619354`*^9, 3.8244815083307495`*^9}, {
    3.824481552232921*^9, 3.824481644764881*^9}, 3.824481686037883*^9, 
    3.8244818271782365`*^9},
- CellLabel->"In[164]:="]
+ CellLabel->"In[21]:="]
 }, Open  ]]
 }, Open  ]],
 
@@ -245,6 +730,11 @@ Cell[CellGroupData[{
 
 Cell["Parse Responses", "Chapter",
  CellChangeTimes->{{3.8244818336645136`*^9, 3.8244818350709314`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Split into Questions and Responses", "Section",
+ CellChangeTimes->{{3.824484896395088*^9, 3.8244849021604424`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -262,7 +752,7 @@ Cell[BoxData[{
  CellChangeTimes->{{3.8244814755619354`*^9, 3.8244815083307495`*^9}, {
    3.824481552232921*^9, 3.824481644764881*^9}, 3.824481686037883*^9, 
    3.8244818271782365`*^9},
- CellLabel->"In[165]:="],
+ CellLabel->"In[22]:="],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -272,8 +762,9 @@ Cell[BoxData[
    ",", "\<\"Results\"\>", ",", "\<\"Writing/Visualization\"\>", 
    ",", "\<\"Comments (optional)\"\>"}], "}"}]], "Output",
  CellChangeTimes->{{3.824481591444991*^9, 3.824481645937313*^9}, 
-   3.8244816868657045`*^9, 3.824483580241848*^9, 3.82448381931853*^9},
- CellLabel->"Out[165]="],
+   3.8244816868657045`*^9, 3.824483580241848*^9, 3.82448381931853*^9, 
+   3.8244913038420324`*^9, 3.82449484939091*^9},
+ CellLabel->"Out[22]="],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -345,9 +836,16 @@ determine the appropriate credit statement for me and Dr Fullwood. \"\>"}
   Function[BoxForm`e$, 
    TableForm[BoxForm`e$]]]], "Output",
  CellChangeTimes->{{3.824481591444991*^9, 3.824481645937313*^9}, 
-   3.8244816868657045`*^9, 3.824483580241848*^9, 3.8244838193809958`*^9},
- CellLabel->"Out[166]//TableForm="]
+   3.8244816868657045`*^9, 3.824483580241848*^9, 3.82448381931853*^9, 
+   3.8244913038420324`*^9, 3.8244948494749355`*^9},
+ CellLabel->"Out[23]//TableForm="]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["View Some Data", "Section",
+ CellChangeTimes->{{3.824484909410448*^9, 3.8244849179288197`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -361,15 +859,16 @@ Cell[BoxData[{
   ";"}], "\[IndentingNewLine]", "names"}], "Input",
  CellChangeTimes->{{3.8244816593561263`*^9, 3.824481741854783*^9}, {
   3.824483590717576*^9, 3.8244835908360896`*^9}},
- CellLabel->"In[167]:="],
+ CellLabel->"In[24]:="],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"\<\"Sterling Baird\"\>", ",", "\<\"Oliver Johnson\"\>", 
    ",", "\<\"David Fullwood\"\>", ",", "\<\"Eric Homer\"\>"}], 
   "}"}]], "Output",
- CellChangeTimes->{3.824483591488434*^9, 3.824483819976393*^9},
- CellLabel->"Out[168]="]
+ CellChangeTimes->{3.824483591488434*^9, 3.824483819976393*^9, 
+  3.8244913049201555`*^9, 3.8244948508241124`*^9},
+ CellLabel->"Out[25]="]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -377,7 +876,7 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"project", "\[LeftDoubleBracket]", "2", 
   "\[RightDoubleBracket]"}]], "Input",
- CellLabel->"In[169]:="],
+ CellLabel->"In[26]:="],
 
 Cell[BoxData["\<\"Supervision: Oversight and leadership responsibility for \
 the research activity planning and execution or including mentorship external \
@@ -386,12 +885,16 @@ responsibility for the research activity planning and execution, Funding \
 acquisition: Acquisition of the financial support for the project leading to \
 this publication\"\>"], "Output",
  CellChangeTimes->{3.8244829109567146`*^9, 3.8244835919237957`*^9, 
-  3.8244837033242035`*^9, 3.8244838205857334`*^9},
- CellLabel->"Out[169]="]
+  3.8244837033242035`*^9, 3.8244838205857334`*^9, 3.8244913056858025`*^9, 
+  3.8244948514760046`*^9},
+ CellLabel->"Out[26]="]
+}, Open  ]]
 }, Open  ]],
 
-Cell[BoxData["Flatten"], "Input",
- CellChangeTimes->{{3.8244841120917797`*^9, 3.8244841128573246`*^9}}],
+Cell[CellGroupData[{
+
+Cell["Keep Terms Only (Remove Definitions)", "Section",
+ CellChangeTimes->{{3.824484924840118*^9, 3.8244849388219304`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -435,7 +938,7 @@ Cell[BoxData[{
   3.8244838312834425`*^9, 3.8244838353595104`*^9}, {3.824483977869358*^9, 
   3.824483978635251*^9}, {3.82448406048223*^9, 3.8244842310770645`*^9}, {
   3.8244844159058876`*^9, 3.824484496480974*^9}},
- CellLabel->"In[224]:="],
+ CellLabel->"In[27]:="],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -462,124 +965,96 @@ Cell[BoxData[
    3.824483328319846*^9, 3.8244835928156385`*^9, {3.824483668688615*^9, 
    3.824483722530466*^9}, {3.824483822320155*^9, 3.824483835625114*^9}, 
    3.824483981291233*^9, {3.824484085060295*^9, 3.8244842320458393`*^9}, {
-   3.8244844814979753`*^9, 3.8244844967779727`*^9}},
- CellLabel->"Out[227]="]
+   3.8244844814979753`*^9, 3.8244844967779727`*^9}, 3.824491306623324*^9, 
+   3.8244948522094955`*^9},
+ CellLabel->"Out[30]="]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
+Cell["Generate CRediT Statement", "Section",
+ CellChangeTimes->{{3.824481840891952*^9, 3.8244818473136377`*^9}}],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
- RowBox[{"terms", "\[LeftDoubleBracket]", "1", 
-  "\[RightDoubleBracket]"}]], "Input",
- CellChangeTimes->{{3.82448457707555*^9, 3.824484581841178*^9}},
- CellLabel->"In[234]:="],
+ RowBox[{"creditStatement", "=", 
+  RowBox[{"StringRiffle", "[", 
+   RowBox[{
+    RowBox[{"MapThread", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringRiffle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\"\<\\\\textbf{\>\"", "<>", "#1", "<>", "\"\<}\>\""}], 
+           ",", 
+           RowBox[{"StringRiffle", "[", 
+            RowBox[{"#2", ",", "\"\<, \>\""}], "]"}]}], "}"}], ",", 
+         "\"\<: \>\""}], "]"}], "&"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"names", ",", "terms"}], "}"}]}], "]"}], ",", "\"\<. \>\""}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.8244838672083626`*^9, 3.824483878860916*^9}, {
+   3.824483984229002*^9, 3.824483984900949*^9}, {3.8244840303259706`*^9, 
+   3.824484030935702*^9}, 3.82448423628024*^9, {3.824484291715231*^9, 
+   3.8244842922098403`*^9}, {3.8244845251459827`*^9, 3.82448459871148*^9}, {
+   3.8244847681689606`*^9, 3.8244847844336667`*^9}, {3.8244849619602575`*^9, 
+   3.824484966975914*^9}, {3.8244908549698086`*^9, 3.8244908585011044`*^9}},
+ CellLabel->"In[31]:="],
+
+Cell[BoxData["\<\"\\\\textbf{Sterling Baird}: Conceptualization, Methodology, \
+Software, Validation, Formal analysis, Investigation, Data Curation, Writing \
+- Original Draft, Writing - Review & Editing, Visualization. \
+\\\\textbf{Oliver Johnson}: Supervision, Project administration, Funding \
+acquisition, Conceptualization, Writing - Review & Editing. \\\\textbf{David \
+Fullwood}: Writing - Review & Editing. \\\\textbf{Eric Homer}: Funding \
+acquisition, Writing - Review & Editing\"\>"], "Output",
+ CellChangeTimes->{3.824490860179265*^9, 3.824491307560809*^9, 
+  3.824494853296504*^9},
+ CellLabel->"Out[31]="]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Export to TeX", "Chapter",
+ CellChangeTimes->{{3.8244849922964706`*^9, 3.8244849998436017`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"file", "=", 
+   RowBox[{"OpenWriteTeX", "@", "\"\<credit-statement\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WL", "[", 
+   RowBox[{"creditStatement", ",", 
+    RowBox[{"File", "\[Rule]", "file"}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.8244950392097063`*^9, 3.824495066242279*^9}},
+ CellLabel->"In[47]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Directory", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.8244950722864356`*^9, 3.824495074582964*^9}},
+ CellLabel->"In[49]:="],
 
 Cell[BoxData[
  DynamicBox[ToBoxes[
    StringJoin["Backing up ", 
-    FileNameTake[NotebookBackup`Private`nbfile$91715], " to ", 
-    FileNameTake[NotebookBackup`Private`bakfile$91715], "..."], StandardForm],
+    FileNameTake[NotebookBackup`Private`nbfile$19213], " to ", 
+    FileNameTake[NotebookBackup`Private`bakfile$19213], "..."], StandardForm],
   
   Evaluator->"Local",
   ImageSizeCache->{377.99999999999994`, {3., 9.}}]], "PrintTemporary",
- CellChangeTimes->{3.8244845822786784`*^9},
- CellLabel->"During evaluation of In[234]:="]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"pairs", "=", 
-  RowBox[{"MapThread", "[", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"Riffle", "[", 
-      RowBox[{"#1", ",", 
-       RowBox[{"StringRiffle", "[", 
-        RowBox[{"#2", ",", "\"\<,\>\""}], "]"}]}], "]"}], "&"}], ",", 
-    RowBox[{"{", 
-     RowBox[{"names", ",", "terms"}], "}"}]}], "]"}]}]], "Input",
- CellChangeTimes->{{3.8244838672083626`*^9, 3.824483878860916*^9}, {
-   3.824483984229002*^9, 3.824483984900949*^9}, {3.8244840303259706`*^9, 
-   3.824484030935702*^9}, 3.82448423628024*^9, {3.824484291715231*^9, 
-   3.8244842922098403`*^9}, {3.8244845251459827`*^9, 3.8244845707645583`*^9}}],
-
-Cell[BoxData[
- TemplateBox[{
-  "Riffle", "list", 
-   "\"List expected at position \\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \
-\\!\\(\\*RowBox[{\\\"Riffle\\\", \\\"[\\\", RowBox[{\\\"\\\\\\\"Sterling \
-Baird\\\\\\\"\\\", \\\",\\\", \
-\\\"\\\\\\\"Conceptualization,Methodology,Software,Validation,Formal \
-analysis,Investigation,Data Curation,Writing - Original Draft,Writing - \
-Review & Editing,Visualization\\\\\\\"\\\"}], \\\"]\\\"}]\\).\"", 2, 232, 29, 
-   17473151685504731433, "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{{3.824484556622196*^9, 3.8244845613861856`*^9}},
- CellLabel->"During evaluation of In[232]:="],
-
-Cell[BoxData[
- TemplateBox[{
-  "Riffle", "list", 
-   "\"List expected at position \\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \
-\\!\\(\\*RowBox[{\\\"Riffle\\\", \\\"[\\\", RowBox[{\\\"\\\\\\\"Oliver \
-Johnson\\\\\\\"\\\", \\\",\\\", \\\"\\\\\\\"Supervision,Project \
-administration,Funding acquisition,Conceptualization,Writing - Review & \
-Editing\\\\\\\"\\\"}], \\\"]\\\"}]\\).\"", 2, 232, 30, 17473151685504731433, 
-   "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{{3.824484556622196*^9, 3.8244845614387245`*^9}},
- CellLabel->"During evaluation of In[232]:="],
-
-Cell[BoxData[
- TemplateBox[{
-  "Riffle", "list", 
-   "\"List expected at position \\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \
-\\!\\(\\*RowBox[{\\\"Riffle\\\", \\\"[\\\", RowBox[{\\\"\\\\\\\"David \
-Fullwood\\\\\\\"\\\", \\\",\\\", \\\"\\\\\\\"Writing - Review & Editing\\\\\\\
-\"\\\"}], \\\"]\\\"}]\\).\"", 2, 232, 31, 17473151685504731433, "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{{3.824484556622196*^9, 3.8244845614937253`*^9}},
- CellLabel->"During evaluation of In[232]:="],
-
-Cell[BoxData[
- TemplateBox[{
-  "General", "stop", 
-   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Riffle\\\", \\\"::\\\", \
-\\\"list\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
-calculation.\"", 2, 232, 32, 17473151685504731433, "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{{3.824484556622196*^9, 3.8244845615507812`*^9}},
- CellLabel->"During evaluation of In[232]:="],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"Riffle", "[", 
-    RowBox[{"\<\"Sterling Baird\"\>", 
-     ",", "\<\"Conceptualization,Methodology,Software,Validation,Formal \
-analysis,Investigation,Data Curation,Writing - Original Draft,Writing - \
-Review & Editing,Visualization\"\>"}], "]"}], ",", 
-   RowBox[{"Riffle", "[", 
-    RowBox[{"\<\"Oliver Johnson\"\>", 
-     ",", "\<\"Supervision,Project administration,Funding \
-acquisition,Conceptualization,Writing - Review & Editing\"\>"}], "]"}], ",", 
-   RowBox[{"Riffle", "[", 
-    RowBox[{"\<\"David Fullwood\"\>", 
-     ",", "\<\"Writing - Review & Editing\"\>"}], "]"}], ",", 
-   RowBox[{"Riffle", "[", 
-    RowBox[{"\<\"Eric Homer\"\>", 
-     ",", "\<\"Funding acquisition,Writing - Review & Editing\"\>"}], "]"}]}],
-   "}"}]], "Output",
- CellChangeTimes->{
-  3.8244839916012383`*^9, 3.8244840313103228`*^9, 3.8244842365770893`*^9, 
-   3.824484293036213*^9, {3.824484556740138*^9, 3.824484561622774*^9}},
- CellLabel->"Out[232]="]
+ CellChangeTimes->{3.8244950750047827`*^9},
+ CellLabel->"During evaluation of In[49]:="]
 }, Open  ]]
-}, Open  ]],
-
-Cell["Generate CRediT Statement", "Chapter",
- CellChangeTimes->{{3.824481840891952*^9, 3.8244818473136377`*^9}}]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -820,13 +1295,41 @@ Cell[BoxData[
    3.82448078102841*^9, 3.8244812109512343`*^9, {3.824481252302312*^9, 
    3.8244812672827177`*^9}},
  CellLabel->"Out[75]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"StringRiffle", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+      "\"\<\\\\textbf{\>\"", "<>", "\"\<Sterling Baird\>\"", "<>", 
+       "\"\<}\>\""}], ",", 
+      RowBox[{"StringRiffle", "[", 
+       RowBox[{
+        RowBox[{
+        "terms", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], ",", 
+        "\"\<, \>\""}], "]"}]}], "}"}], ",", "\"\<: \>\""}], "]"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.82448457707555*^9, 3.8244847208487935`*^9}},
+ CellLabel->"In[245]:="],
+
+Cell[BoxData["\<\"\\\\textbf{Sterling Baird}: Conceptualization, Methodology, \
+Software, Validation, Formal analysis, Investigation, Data Curation, Writing \
+- Original Draft, Writing - Review & Editing, Visualization\"\>"], "Output",
+ CellChangeTimes->{{3.824484577794265*^9, 3.8244846440149136`*^9}, 
+   3.8244846785211678`*^9, {3.8244847092069917`*^9, 3.8244847324971237`*^9}},
+ CellLabel->"Out[245]="]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1140.6, 580.1999999999999},
+WindowSize->{1141.2, 580.1999999999999},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 WindowStatusArea->"credit-statement.nb last backed up to credit-statement.nb~ \
-on Thu 11 Mar 2021 at 1:39:41 PM",
+on Thu 11 Mar 2021 at 4:34:29 PM",
 FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (June 19, 2020)",
 StyleDefinitions->"defaultSyntaxHighlight.nb"
 ]
@@ -842,113 +1345,139 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 99, 1, 70, "Title",ExpressionUUID->"f68d1edf-d831-44f5-8ea9-a321a095a79c"],
-Cell[682, 25, 246, 5, 70, "Subtitle",ExpressionUUID->"d81c4de4-e4e0-491c-a2b3-6e7a88cbf993"],
+Cell[580, 22, 99, 1, 70, "Title",ExpressionUUID->"68db4ced-0262-4d8a-ac37-9415f7608c7a"],
+Cell[682, 25, 246, 5, 70, "Subtitle",ExpressionUUID->"302ebf8b-2264-48d2-a947-ef12b1cd7076"],
 Cell[CellGroupData[{
-Cell[953, 34, 103, 1, 70, "Chapter",ExpressionUUID->"59dbdf6e-2a7f-4ece-8f00-2081d754c52c"],
+Cell[953, 34, 94, 1, 70, "Chapter",ExpressionUUID->"8bf932bf-73f1-449b-8c4a-2db11d0d4e65"],
+Cell[1050, 37, 144, 3, 70, "Input",ExpressionUUID->"c38155d0-41cc-4c39-9450-22c90ca236bd"],
 Cell[CellGroupData[{
-Cell[1081, 39, 102, 1, 70, "Section",ExpressionUUID->"bb3b8873-c413-4199-80f8-47a0273608ab"],
-Cell[1186, 42, 2652, 63, 70, "Input",ExpressionUUID->"016058c1-6436-44c7-af9c-fd3299283e45",
+Cell[1219, 44, 244, 5, 70, "Input",ExpressionUUID->"0d32f758-ef33-465a-9906-3cbb6b904055"],
+Cell[1466, 51, 19874, 435, 70, "Output",ExpressionUUID->"55c49648-6a12-4145-af3d-8bbee18e8605"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21377, 491, 159, 3, 70, "Input",ExpressionUUID->"53a58f03-5e5c-48a9-896c-34c4514a69cb"],
+Cell[21539, 496, 431, 8, 70, "Output",ExpressionUUID->"425dae80-56b4-4072-a829-cf3eba4a3df4"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22019, 510, 103, 1, 70, "Chapter",ExpressionUUID->"def97b13-488c-49d7-b72c-d178efbcccf5"],
+Cell[CellGroupData[{
+Cell[22147, 515, 102, 1, 70, "Section",ExpressionUUID->"02f52c1a-070d-4fc1-ad8e-7f93a534ce0e"],
+Cell[22252, 518, 2858, 66, 70, "Input",ExpressionUUID->"62df39a3-e13b-492b-a96e-7c8867616e83",
  InitializationCell->True]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3875, 110, 143, 2, 70, "Section",ExpressionUUID->"1c1e0014-740f-4d5b-9ed2-f225933c7f10"],
-Cell[4021, 114, 137, 1, 70, "Text",ExpressionUUID->"0352634d-e656-4ae0-a3bd-bf38d7a4f01d"],
-Cell[4161, 117, 391, 9, 70, "Input",ExpressionUUID->"5d63f6a1-d0d4-49be-887c-760d72b621e5"],
+Cell[25147, 589, 143, 2, 70, "Section",ExpressionUUID->"f59b1116-f7b5-4cd0-a185-ed08c384e7f0"],
+Cell[25293, 593, 137, 1, 70, "Text",ExpressionUUID->"c2066e4f-0c23-47d5-8d99-cfd4c2e136c0"],
+Cell[25433, 596, 390, 9, 70, "Input",ExpressionUUID->"00942129-a4c2-4409-9d99-c4f8c4ae06c5"],
 Cell[CellGroupData[{
-Cell[4577, 130, 197, 4, 70, "Input",ExpressionUUID->"7c3af74e-2c7f-4e4b-968f-e2d63088251f"],
-Cell[4777, 136, 335, 6, 70, "Output",ExpressionUUID->"c6862ec8-5730-4177-a3b0-1fd1807951b1"]
+Cell[25848, 609, 242, 5, 70, "Input",ExpressionUUID->"14d1781e-6915-489b-ab75-e1786e8646e6"],
+Cell[26093, 616, 486, 9, 70, "Output",ExpressionUUID->"7450919f-10ad-4232-a4b0-9e6a6c4cc3c3"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5149, 147, 102, 1, 70, "Subsection",ExpressionUUID->"c07b1485-f33b-4d24-8078-68ed6bf0e983"],
+Cell[26616, 630, 102, 1, 70, "Subsection",ExpressionUUID->"24327483-a986-4740-bd82-f3864df9e8bf"],
 Cell[CellGroupData[{
-Cell[5276, 152, 420, 10, 70, "Input",ExpressionUUID->"073e7d0b-ccde-4b60-9dc0-8b39f85355b4"],
-Cell[5699, 164, 238, 4, 70, "Output",ExpressionUUID->"5a05706b-cc9e-405e-8e32-97f21d7497bd"]
+Cell[26743, 635, 419, 10, 70, "Input",ExpressionUUID->"1cca305c-9ab3-47ab-9b0c-97ea863e1d22"],
+Cell[27165, 647, 287, 5, 70, "Output",ExpressionUUID->"edbe9dc5-ac3e-467c-937d-8076243817e8"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6010, 176, 105, 1, 70, "Chapter",ExpressionUUID->"6b3b5a39-3c11-41d9-97ad-21f06f1a6e5e"],
+Cell[27525, 660, 105, 1, 70, "Chapter",ExpressionUUID->"b02acd52-8525-4c8f-baa4-38dac9c72b74"],
 Cell[CellGroupData[{
-Cell[6140, 181, 92, 1, 70, "Section",ExpressionUUID->"04f5c1b7-03aa-4171-950a-15a1abdee821"],
-Cell[6235, 184, 204, 4, 70, "Text",ExpressionUUID->"7ba061f5-2dba-414e-877c-87185a4ae0a3"]
+Cell[27655, 665, 92, 1, 70, "Section",ExpressionUUID->"57ad07d5-a843-4b92-baf4-7918345ed658"],
+Cell[27750, 668, 204, 4, 70, "Text",ExpressionUUID->"cbbc9458-3d71-4403-8a92-9defb9b9769b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6476, 193, 124, 1, 70, "Section",ExpressionUUID->"0ffe12ac-43e0-4102-aa04-c513ccb87bae"],
+Cell[27991, 677, 124, 1, 70, "Section",ExpressionUUID->"e12d83a5-09d8-409d-9dc5-d65d9fd230db"],
 Cell[CellGroupData[{
-Cell[6625, 198, 100, 1, 70, "Subsection",ExpressionUUID->"6252c323-7731-4799-aada-def12f51ce02"],
+Cell[28140, 682, 100, 1, 70, "Subsection",ExpressionUUID->"bc1ddb74-0447-46b6-8e83-273f55a9f845"],
 Cell[CellGroupData[{
-Cell[6750, 203, 446, 8, 70, "Input",ExpressionUUID->"76de2cbb-3105-4067-bfff-b78db2a009ee"],
-Cell[7199, 213, 493, 8, 70, "Output",ExpressionUUID->"733ee5c2-aed1-42e3-bd06-b977a116f28d"]
+Cell[28265, 687, 445, 8, 70, "Input",ExpressionUUID->"061d0481-a2fa-43b9-bf99-319a2d652ea9"],
+Cell[28713, 697, 542, 9, 70, "Output",ExpressionUUID->"31418bf8-f943-4be9-80af-1fcc8f11cab0"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7753, 228, 152, 2, 70, "Section",ExpressionUUID->"498135b9-67e2-4525-82e3-6d8c1e62ae76"],
-Cell[7908, 232, 307, 7, 70, "Input",ExpressionUUID->"29d1fb57-3e75-46ba-ba40-ee827e5f813f"]
+Cell[29316, 713, 152, 2, 70, "Section",ExpressionUUID->"e017e5fa-45c2-48e7-9018-01279007ae36"],
+Cell[29471, 717, 306, 7, 70, "Input",ExpressionUUID->"4485fc18-d0b4-4b9a-990f-6252d0041509"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8264, 245, 104, 1, 70, "Chapter",ExpressionUUID->"68841da6-4409-4cc0-ab6d-a53a658e7c24"],
+Cell[29826, 730, 104, 1, 70, "Chapter",ExpressionUUID->"c1e9545b-fd22-43bc-9ce8-ee5f19553cee"],
 Cell[CellGroupData[{
-Cell[8393, 250, 592, 14, 70, "Input",ExpressionUUID->"f12aa2cb-a270-41b9-ba7e-977be39560c6"],
-Cell[8988, 266, 470, 9, 70, "Output",ExpressionUUID->"c7181fca-dfb4-4e3e-80c2-c6c8fc7a3b7a"],
-Cell[9461, 277, 4547, 71, 70, "Output",ExpressionUUID->"b83a3801-34d9-4def-9532-5d5a781d6f8a"]
-}, Open  ]],
+Cell[29955, 735, 121, 1, 70, "Section",ExpressionUUID->"a97e8270-9214-4ea8-97ee-f22ee410dab2"],
 Cell[CellGroupData[{
-Cell[14045, 353, 415, 10, 70, "Input",ExpressionUUID->"4687c574-f536-4cc9-9bea-951de8dfc9d1"],
-Cell[14463, 365, 269, 6, 70, "Output",ExpressionUUID->"c19c03c6-99b8-483b-94cc-1cefb334ff72"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[14769, 376, 127, 3, 70, "Input",ExpressionUUID->"6619b8e8-cb3a-4d10-a65a-97fda04679d5"],
-Cell[14899, 381, 560, 8, 70, "Output",ExpressionUUID->"515acdc9-4dcf-4aef-bc8d-21f4611b3198"]
-}, Open  ]],
-Cell[15474, 392, 103, 1, 70, "Input",ExpressionUUID->"ae3f10d6-3445-45de-9072-39d6d90ec3f1"],
-Cell[CellGroupData[{
-Cell[15602, 397, 1619, 40, 70, "Input",ExpressionUUID->"9905b566-d8d7-43ac-8284-20968cf0dde7"],
-Cell[17224, 439, 1457, 26, 70, "Output",ExpressionUUID->"5d0c56fc-537a-4158-a277-32d74bdced04"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[18718, 470, 190, 4, 70, "Input",ExpressionUUID->"787e26cc-074e-403b-8fe8-172039395d6d"],
-Cell[18911, 476, 393, 9, 70, "PrintTemporary",ExpressionUUID->"64704ab1-5229-4683-b50a-6780499f9e97"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[19341, 490, 631, 14, 70, "Input",ExpressionUUID->"5cf92d09-7b5f-48ee-a465-d2fd835998b7"],
-Cell[19975, 506, 639, 12, 70, "Message",ExpressionUUID->"0a72cb91-bcd3-4800-9cf6-d80239b18834"],
-Cell[20617, 520, 577, 11, 70, "Message",ExpressionUUID->"5e1e1358-d8b0-4267-ad1f-4b19cce258d4"],
-Cell[21197, 533, 498, 9, 70, "Message",ExpressionUUID->"d92a7185-6475-4f93-93b7-3e6eb1ba71e5"],
-Cell[21698, 544, 419, 8, 70, "Message",ExpressionUUID->"02e8856a-8dcd-4bd7-b073-bb5a1a60000c"],
-Cell[22120, 554, 992, 22, 70, "Output",ExpressionUUID->"8f52f929-99b7-4bd4-88dd-636ac7a27864"]
+Cell[30101, 740, 591, 14, 70, "Input",ExpressionUUID->"9ac6592d-5c0f-4449-b8a4-5c3200a13b27"],
+Cell[30695, 756, 518, 10, 70, "Output",ExpressionUUID->"d2424c9f-6bf1-4656-bf4d-5cbc6642a15f"],
+Cell[31216, 768, 4595, 72, 70, "Output",ExpressionUUID->"8138f14b-b45d-4562-ae6d-17d93ee9bbe4"]
 }, Open  ]]
 }, Open  ]],
-Cell[23139, 580, 112, 1, 70, "Chapter",ExpressionUUID->"adc73694-3256-4921-bb4b-ace057ee95fb"]
+Cell[CellGroupData[{
+Cell[35860, 846, 101, 1, 70, "Section",ExpressionUUID->"a8606f7f-504b-483d-80a0-16484c90c619"],
+Cell[CellGroupData[{
+Cell[35986, 851, 414, 10, 70, "Input",ExpressionUUID->"89fa910b-d470-4f10-a7df-cda75fb49edf"],
+Cell[36403, 863, 319, 7, 70, "Output",ExpressionUUID->"8553a677-39e2-4ba7-87df-5599483fd98f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23288, 586, 101, 1, 70, "Title",ExpressionUUID->"c413b4ef-21ee-4fb8-9e7b-215ae7b1615d"],
-Cell[23392, 589, 231, 4, 70, "Input",ExpressionUUID->"7a797e18-ad60-454e-bb4f-b84fb7ef4a52"],
-Cell[23626, 595, 178, 3, 70, "Input",ExpressionUUID->"25446699-2942-49b0-b338-f859e51c4113"],
-Cell[CellGroupData[{
-Cell[23829, 602, 317, 7, 70, "Input",ExpressionUUID->"eb0c471f-7449-43e4-b28b-7c00d31467d4"],
-Cell[24149, 611, 894, 19, 70, "Output",ExpressionUUID->"248f9308-e745-4a82-80b9-9fc80c38c4d3"]
+Cell[36759, 875, 126, 3, 70, "Input",ExpressionUUID->"96c47811-19b9-4858-a27f-78a1e1a61939"],
+Cell[36888, 880, 610, 9, 70, "Output",ExpressionUUID->"7c7d82bf-c994-47ea-8a92-ee341d59f345"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25080, 635, 448, 11, 70, "Input",ExpressionUUID->"153f9dbe-b915-4340-9cfd-0536a53b9d72"],
-Cell[25531, 648, 350, 7, 70, "Output",ExpressionUUID->"de4a035c-6282-46e8-a533-b0b47f1213fa"]
+Cell[37547, 895, 123, 1, 70, "Section",ExpressionUUID->"7a5e0f44-d239-4e6e-94c7-855baa3e3333"],
+Cell[CellGroupData[{
+Cell[37695, 900, 1618, 40, 70, "Input",ExpressionUUID->"82b94499-3f80-4e40-bfbb-14f547ff97ff"],
+Cell[39316, 942, 1506, 27, 70, "Output",ExpressionUUID->"b22cf253-2ce6-4154-9ff1-bda51905b90a"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25918, 660, 643, 16, 70, "Input",ExpressionUUID->"0c0c30ee-9c70-4d7f-b662-751953ad9c8f"],
-Cell[26564, 678, 199, 4, 70, "Output",ExpressionUUID->"c73504f7-20e2-400a-ae86-73c92f4195fc"]
-}, Open  ]],
-Cell[26778, 685, 366, 11, 70, "Input",ExpressionUUID->"e70ed2cd-bc51-40d9-a3b8-7388be941499"],
+Cell[40871, 975, 112, 1, 70, "Section",ExpressionUUID->"211467ac-bb44-4475-8456-e42cadc8f473"],
 Cell[CellGroupData[{
-Cell[27169, 700, 1054, 24, 70, "Input",ExpressionUUID->"e68db349-ed38-44ea-96a3-9382395620ac"],
-Cell[28226, 726, 1385, 37, 70, "Output",ExpressionUUID->"96e1b134-78ee-4423-9189-bd0ec8acaba7"]
+Cell[41008, 980, 1085, 25, 70, "Input",ExpressionUUID->"59790221-acc3-4261-a18d-9a8aa2a71bd3"],
+Cell[42096, 1007, 618, 9, 70, "Output",ExpressionUUID->"dabab9b5-c53f-4f11-b830-96d68f56792e"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
-Cell[29626, 766, 121, 1, 70, "Text",ExpressionUUID->"ddacb3ce-68f5-4d09-94eb-26aa7baef2a1"],
 Cell[CellGroupData[{
-Cell[29772, 771, 294, 7, 70, "Input",ExpressionUUID->"69c1bbc3-0bc8-45d9-aa20-21fbe9f64146"],
-Cell[30069, 780, 1898, 41, 70, "Output",ExpressionUUID->"be03274f-339a-40ea-8f90-a5a07063b89d"]
+Cell[42775, 1023, 102, 1, 70, "Chapter",ExpressionUUID->"81824ff5-dff1-43d9-9b36-254371a194eb"],
+Cell[42880, 1026, 374, 10, 70, "Input",ExpressionUUID->"b52f960d-3fff-4926-9807-db1f761c7bfc"],
+Cell[CellGroupData[{
+Cell[43279, 1040, 149, 3, 70, "Input",ExpressionUUID->"e0d12b79-0e9e-477e-9ccc-026881c9cc23"],
+Cell[43431, 1045, 392, 9, 70, "PrintTemporary",ExpressionUUID->"0adabcbf-9e33-4698-980f-5dee0c4a7ad8"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43884, 1061, 101, 1, 70, "Title",ExpressionUUID->"38c2fe82-2fa3-4bf0-a8e7-93c9c0dc4ea9"],
+Cell[43988, 1064, 231, 4, 70, "Input",ExpressionUUID->"b94b194e-7952-41f6-894d-81bddf4abe2b"],
+Cell[44222, 1070, 178, 3, 70, "Input",ExpressionUUID->"590e7332-9099-45f5-8cd7-5a978f8d339c"],
+Cell[CellGroupData[{
+Cell[44425, 1077, 317, 7, 70, "Input",ExpressionUUID->"f611ee1f-5720-422e-8043-295cb1e3ab71"],
+Cell[44745, 1086, 894, 19, 70, "Output",ExpressionUUID->"238f6258-940a-4e5f-9f40-4f65a22c8199"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45676, 1110, 448, 11, 70, "Input",ExpressionUUID->"f2e3b245-d22c-49c5-b18b-421eb6108732"],
+Cell[46127, 1123, 350, 7, 70, "Output",ExpressionUUID->"2dd97366-58f5-4f81-bfa2-ae3010adb099"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46514, 1135, 643, 16, 70, "Input",ExpressionUUID->"683d6929-8c3f-4e49-a183-3a6f5c831d44"],
+Cell[47160, 1153, 199, 4, 70, "Output",ExpressionUUID->"c895e99c-bc66-4363-8eb4-c7d796451065"]
+}, Open  ]],
+Cell[47374, 1160, 366, 11, 70, "Input",ExpressionUUID->"061043b9-410d-413f-81b7-a2a505f928d4"],
+Cell[CellGroupData[{
+Cell[47765, 1175, 1054, 24, 70, "Input",ExpressionUUID->"b7ac918d-c081-4635-9099-7131db7d5292"],
+Cell[48822, 1201, 1385, 37, 70, "Output",ExpressionUUID->"a1ef0662-d1c2-4658-9e02-9ab03821ea39"]
+}, Open  ]],
+Cell[50222, 1241, 121, 1, 70, "Text",ExpressionUUID->"e5a190c3-b189-41ec-8bbe-685f9e08e196"],
+Cell[CellGroupData[{
+Cell[50368, 1246, 294, 7, 70, "Input",ExpressionUUID->"296f0c7c-ea93-443e-8483-d759d6b6781c"],
+Cell[50665, 1255, 1898, 41, 70, "Output",ExpressionUUID->"a8520a34-674b-4b9d-871b-07bad15c7fcd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52600, 1301, 545, 16, 70, "Input",ExpressionUUID->"26e7cf3b-4b3c-4622-9312-a0ab4d0fc920"],
+Cell[53148, 1319, 406, 5, 70, "Output",ExpressionUUID->"28b3543e-df33-457f-ab91-d624b9c61c06"]
 }, Open  ]]
 }, Open  ]]
 }
