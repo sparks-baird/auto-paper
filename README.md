@@ -1,6 +1,7 @@
 # auto-paper
 Automate your scientific research paper (thesis, original article, review).
 
+## Seminar
 [Watch the seminar](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=131s):  
 > Taylor Sparks
 > 7K subscribers
@@ -19,6 +20,8 @@ Sterling has video demonstrations for each software package and explains how the
 > [36:09](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=2169s) electronic lab notebooks  
 > [38:31](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=2311s) Q&A  
 
+## Intro
+
 An automated workflow might look something like the following:
 <img src=diagram/auto-paper-new.png width=600>
 
@@ -29,10 +32,12 @@ LaTeX and Git are the bread and butter of an automated scientific research paper
 
 ## LaTeX Document Typesetting
 LaTeX allows you to focus more on content rather than formatting.
+
 See [LaTeX Teaching](latex-teaching)
 
 ## Git Version Control
 Git gives you ease, control, power, and peace of mind in version control.
+
 See [Git Teaching](git-teaching)
 
 ## Figures
@@ -44,11 +49,11 @@ Plotting videos by Dr. Taylor Sparks: Python to make nice figures.
 [Part III](https://www.youtube.com/watch?v=fwZahTYfyxA)
 
 ### MATLAB
-mat-fig (need to add repo)
+Wrap built-in functions into custom versatile functions that suit your research needs. For example, using `parityplot.m` from mat-fig (need to add repo link):  
+<img src=https://github.com/sgbaird/latex-teaching/blob/main/figures/single-parity.png width=300>  
 
 ## Tables
 [Tables Generator](https://www.tablesgenerator.com/#latex) ([video](figures/mathematica.mp4))
-
 
 ## Equations
 ### Existing LaTeX Code
