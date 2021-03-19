@@ -1,10 +1,30 @@
 # auto-paper
 Automate your scientific research paper (thesis, original article, review).
 
+[Watch the seminar](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=131s)
+
+
+> Taylor Sparks
+> 7K subscribers
+> 
+> Sterling Baird, PhD candidate at the University of Utah's Materials Science & Engineering Department in Dr. Taylor Sparks' laboratory, explains some incredible tips, tricks, and tools for automating your research paper. This presentation includes awesome video tutorials for using Github, LaTeX, Matlab, Mathematica, overleaf, Zotero, Web of Science, Scinote, Endnote Click, Science Direct, Table generators, Mathpix snip, protocols.io, and so much more!
+Sterling has video demonstrations for each software package and explains how they can all work together in one seamless workflow that will make life easy for any graduate student or researcher. Learn how to be a graduate student from the future with these amazing tools that will astonish your PhD advisor!
+> 
+> [0:00](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=0s) survey results of current tools  
+> [1:47](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=107s) automation overview  
+> [4:30](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=270s) LaTeX & github  
+> [12:20](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=740s) summary of automated workflow tools  
+> [18:39](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=1119s) literature management  
+> [24:10](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=1450s) conversion apps  
+> [25:10](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=1510s) LaTeX packages  
+> [30:00](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=1800s) code integrations  
+> [36:09](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=2169s) electronic lab notebooks  
+> [38:31](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=2311s) Q&A
+
 An automated workflow might look something like the following:
 <img src=diagram/auto-paper-new.png width=600>
 
-My personal workflow involves:  
+My personal workflow looks like the following:  
 <img src=diagram/auto-paper-new12-protocols.png width=650>
 
 LaTeX and Git are the bread and butter of an automated scientific research paper. While you can use some aspects of these tips/tricks without LaTeX/Git (e.g. MathPix Snipping Tool), many others are highly integrated. Learning LaTeX and Git might have a startup cost of 10-100 hrs (depending on desired skill level), but could easily save you 100's of hrs in the first year or two of you using it. The aim of "auto-paper" is to enable to you accelerate your publication rate and improve publication quality.
