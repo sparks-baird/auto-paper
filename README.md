@@ -140,20 +140,28 @@ Using `TeXport[]`
 ## Literature
 If it was easy, someone has probably already done it. If not, it's probably not as important as you think.
 
-### Accurate PDF Metadata
-EndNote Click (formerly Kopernio) has given the best results in my experience.
+### WoS Accurate PDF Metadata
+[EndNote Click (formerly Kopernio)](https://kopernio.com/) has given the best results for adding the correct metadata to PDFs.
+
+<img src=figures/endnote-click.gif width=650>
 
 ### Research Databases
 Between Science Direct and Web of Science, you're likely to find all the research articles that you need. I find that searching both is better than searching only one. While Google Scholar and Google are great search engines for certain applications, I discourage heavy reliance on these for your literature searches. It is likely that you may miss seminal, cutting edge, and or obscure, important papers by neglecting to use Science Direct and Web of Science.
+
 #### Keywords
 Keywords deserve their own section because they can make or break your success in finding "gold" articles in your field.
 
 #### Citation Trees
 Citation trees (or webs) help you find "gold", "silver", and "bronze" articles in your field by allowing you to trace what works have been cited and what works have been doing the citing. Find 3-4 highly relevant papers in your field, moving up, down, and side-to-side in the citation tree can lead to a treasure trove of other articles.
 
+Here is an example of navigating to "citing" articles within Web of Science:
+<img src=figures/wos-citing-articles.gif width=650>
+
 #### Science Direct
+[Science Direct](https://www.sciencedirect.com)
 
 #### Web of Science
+[Web of Science](https://www.webofknowledge.com)
 
 ### Data Extraction (from existing image-file figures)
 [Web Plot Digitizer](https://apps.automeris.io/wpd/)
@@ -172,7 +180,12 @@ Ability to quick-copy citation commands in Zotero is great.
 
 #### Annotations
 
+<img src=figures/foxit-annotation.gif>
+
 #### Organization (folder structure and tags)
+After downloading with EndNote Click, drag-and-drop the PDF into Zotero into a folder structure that you organize, and notice that the metadata is automatically extracted:
+
+<img src=figures/zotero-metadata-extraction.gif width=650>
 
 
 ## LaTeX
