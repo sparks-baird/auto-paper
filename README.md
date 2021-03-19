@@ -4,6 +4,34 @@ Automate your scientific research paper (thesis, original article, review).
 An automated workflow might look something like the following:
 <img src=diagram/auto-paper-new.png width=600>
 
+My personal workflow involves:  
+<img src=diagram/auto-paper-new12-protocols.png width=650>
+
+LaTeX and Git are the bread and butter of an automated scientific research paper. While you can use some aspects of these tips/tricks without LaTeX/Git (e.g. MathPix Snipping Tool), many others are highly integrated. Learning LaTeX and Git might have a startup cost of 10-100 hrs (depending on desired skill level), but could easily save you 100's of hrs in the first year or two of you using it. The aim of "auto-paper" is to enable to you accelerate your publication rate and improve publication quality.
+
+## LaTeX Document Typesetting
+LaTeX allows you to focus more on content rather than formatting.
+See [LaTeX Teaching](latex-teaching)
+
+## Git Version Control
+Git gives you ease, control, power, and peace of mind in version control.
+See [Git Teaching](git-teaching)
+
+## Figures
+
+### python
+Plotting videos by Dr. Taylor Sparks: Python to make nice figures.
+[Part I](https://www.youtube.com/watch?v=rUV8VFbUi_U)
+[Part II](https://www.youtube.com/watch?v=Y8JWfGjj2ok)
+[Part III](https://www.youtube.com/watch?v=fwZahTYfyxA)
+
+### MATLAB
+mat-fig (need to add repo)
+
+## Tables
+[Tables Generator](https://www.tablesgenerator.com/#latex) ([video](figures/mathematica.mp4))
+
+
 ## Equations
 ### Existing LaTeX Code
 Search for LaTeX code for common equations
@@ -26,17 +54,6 @@ Using `TeXport[]`
 * Export equations to a `.tex` file
 * Export equations followed by variable definitions (e.g. "where a, b, and c represent apples, bananas, and cantouloupes, respectively.")
 * Perform and typeset proofs (equations, variable definitions, sentences, and symbolic solutions)
-
-## Plotting
-
-### python
-Plotting videos by Dr. Taylor Sparks: Python to make nice figures.
-[Part I](https://www.youtube.com/watch?v=rUV8VFbUi_U)
-[Part II](https://www.youtube.com/watch?v=Y8JWfGjj2ok)
-[Part III](https://www.youtube.com/watch?v=fwZahTYfyxA)
-
-### MATLAB
-mat-fig
 
 ## Literature
 If it was easy, someone has probably already done it. If not, it's probably not as important as you think.
