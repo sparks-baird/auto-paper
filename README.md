@@ -7,8 +7,9 @@ Automate your scientific research paper (thesis, original article, review).
 > 7K subscribers
 > 
 > Sterling Baird, PhD candidate at the University of Utah's Materials Science & Engineering Department in Dr. Taylor Sparks' laboratory, explains some incredible tips, tricks, and tools for automating your research paper. This presentation includes awesome video tutorials for using Github, LaTeX, Matlab, Mathematica, overleaf, Zotero, Web of Science, Scinote, Endnote Click, Science Direct, Table generators, Mathpix snip, protocols.io, and so much more!
-Sterling has video demonstrations for each software package and explains how they can all work together in one seamless workflow that will make life easy for any graduate student or researcher. Learn how to be a graduate student from the future with these amazing tools that will astonish your PhD advisor!  
-> [<img src=https://user-images.githubusercontent.com/45469701/111828653-3b468b80-88b1-11eb-94d1-18bc5b92b732.png width=300>](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=131s)  
+Sterling has video demonstrations for each software package and explains how they can all work together in one seamless workflow that will make life easy for any graduate student or researcher. Learn how to be a graduate student from the future with these amazing tools that will astonish your PhD advisor!
+
+> [<img src=https://user-images.githubusercontent.com/45469701/111828653-3b468b80-88b1-11eb-94d1-18bc5b92b732.png width=300>](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=131s)
 > [0:00](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=0s) survey results of current tools  
 > [1:47](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=107s) automation overview  
 > [4:30](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=270s) LaTeX & github  
@@ -18,7 +19,7 @@ Sterling has video demonstrations for each software package and explains how the
 > [25:10](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=1510s) LaTeX packages  
 > [30:00](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=1800s) code integrations  
 > [36:09](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=2169s) electronic lab notebooks  
-> [38:31](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=2311s) Q&A  
+> [38:31](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=2311s) Q&A
 
 ## Intro
 
