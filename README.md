@@ -33,12 +33,12 @@ LaTeX and Git are the bread and butter of an automated scientific research paper
 ## LaTeX Document Typesetting
 LaTeX allows you to focus more on content rather than formatting.
 
-See [LaTeX Teaching](latex-teaching)
+See 🔗[LaTeX Teaching](latex-teaching)
 
 ## Git Version Control
 Git gives you ease, control, power, and peace of mind in version control.
 
-See [Git Teaching](git-teaching)
+See 🔗[Git Teaching](git-teaching)
 
 ## Figures
 
@@ -86,8 +86,6 @@ Use <button type="button" name="button" class="btn">CopyAs..</button> <button ty
 More advanced typesetting:
 
 <img src=figures/mathematica-crabnet-4x.gif width=950>
-
-
 
 LaTeX Formatted:
 
