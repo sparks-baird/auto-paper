@@ -55,8 +55,12 @@ Plotting videos by Dr. Taylor Sparks: Python to make nice figures.
 Wrap built-in functions into custom versatile functions that suit your research needs. For example, using `parityplot.m` from mat-fig (need to add repo link):  
 <img src=https://github.com/sgbaird/latex-teaching/blob/main/figures/single-parity.png width=300>  
 
+See [MATLAB Directory](matlab)
+
 ## Tables
-[Tables Generator](https://www.tablesgenerator.com/#latex) ([video](figures/mathematica.mp4))
+[Tables Generator](https://www.tablesgenerator.com/#latex)
+
+<img src=figures/tables-generator.gif width=600>
 
 ## Equations
 ### Existing LaTeX Code
@@ -64,6 +68,8 @@ Search for LaTeX code for common equations
 
 ### Mathpix Snipping Tool
 Find an image of the equation you're looking for and use [Mathpix Snipping Tool](mathpix.com) to convert to LaTeX, MathML, etc.
+
+<img src=figures/mathpix-simple.gif width=500>
 
 ### Mathematica
 
@@ -74,6 +80,56 @@ You can play around with Mathematica code (including use of `TeXForm`) and get s
 Use <button type="button" name="button" class="btn">CopyAs..</button> <button type="button" name="button" class="btn">"LaTeX"</button>
 * Typeset equations in Mathematica
 * Can copy LaTeX or MathML into Mathematica (latter generally behaves better in my experience)
+
+#### Intermediate:
+
+More advanced typesetting:
+
+<img src=figures/mathematica-crabnet-4x.gif width=950>
+
+
+
+LaTeX Formatted:
+
+<img src=figures/mathematica-latex-formatted.png width=600>
+
+Mathematica "Copy As.. LaTeX" Output
+
+```latex
+\begin{equation}
+    \begin{array}{cccc}
+     \overbrace{\left(
+    \begin{array}{c}
+     \text{Distances} \\
+     \text{Angles} \\
+     \text{Area} \\
+     \text{Volume} \\
+    \end{array}
+    \right)}^{\text{Features}} & \overbrace{\left(
+    \begin{array}{c}
+     0.1\text{\AA} \\
+     0\text{rad} \\
+     0\text{\AA}^2 \\
+     0\text{\AA}^3 \\
+    \end{array}
+    \right)}^{\text{Lower Bound}} & \overbrace{\left(
+    \begin{array}{ccccccccccccc}
+     0 & 0.1 & 0.3 & 0.1 & 0 & 0 & 0.2 & 0.4 & 0.2 & 0 & 0 & \ldots  & 0 \\
+     0 & 0.1 & 0.2 & 0.4 & 0.2 & 0.1 & 0 & 0 & 0 & 0 & 0 & \ldots  & 0.2 \\
+     0 & 0 & 0 & 0.3 & 0.6 & 0.3 & 0 & 0 & 0 & 0.1 & 0.2 & \ldots  & 0 \\
+     0 & 0 & 0 & 0 & 0 & 0.4 & 0.6 & 0.4 & 0 & 0 & 0 & \ldots  & 0.1 \\
+    \end{array}
+    \right)}^{\text{Gaussian Encoding}} & \overbrace{\left(
+    \begin{array}{c}
+     15\text{\AA} \\
+     \pi \text{rad} \\
+     225\text{\AA}^2 \\
+     3375\text{\AA}^3 \\
+    \end{array}
+    \right)}^{\text{Upper Bound}} \\
+    \end{array}
+\end{equation}
+```
 
 #### Advanced:
 Using `TeXport[]`
@@ -112,7 +168,7 @@ My favorite is Zotero.
 #### Citation Keys and Commands
 Issues with Mendeley changing citation keys all the time on me. Has thrown off almost the entire LaTeX bibliography before.
 
-Ability to quick-copy citation commands.
+Ability to quick-copy citation commands in Zotero is great.
 
 #### Annotations
 
