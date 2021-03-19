@@ -1,6 +1,3 @@
-[submodule "latex-teaching"]
-	path = latex-teaching
-	url = https://github.com/sgbaird/latex-teaching.git
 [submodule "main/code/mathematica/TeXport"]
 	path = main/code/mathematica/TeXport
 	url = git@github.com:sgbaird/TeXport.git
