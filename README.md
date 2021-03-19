@@ -168,6 +168,7 @@ Here is an example of navigating to "citing" articles within Web of Science:
 ## Reference Management
 Use EndNote Click to bring your documents in!
 ### Zotero vs. Mendeley vs. EndNote
+See [ref-software](ref-software)
 
 #### Automatic export
 My favorite is Zotero.
@@ -179,7 +180,7 @@ Ability to quick-copy citation commands in Zotero is great.
 
 #### Annotations
 
-<img src=figures/foxit-annotation.gif>
+<img src=figures/foxit-annotation.gif width=650>
 
 #### Organization (folder structure and tags)
 After downloading with EndNote Click, drag-and-drop the PDF into Zotero into a folder structure that you organize, and notice that the metadata is automatically extracted:
