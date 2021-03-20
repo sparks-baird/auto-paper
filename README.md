@@ -23,16 +23,22 @@ Sterling has video demonstrations for each software package and explains how the
 > [36:09](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=2169s) electronic lab notebooks  
 > [38:31](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=2311s) Q&A
 
+### Slides
+Due to the large filesize, the slides are not available in this repository. However, you can download a copy of slides at their saved state on 2021-03-18:
+
+- [auto-paper-210318.pptx](https://byu-my.sharepoint.com/:p:/g/personal/sbaird9_byu_edu/EdKzWo69pe1EpyNz5aErgPoBD9IZsx3C0E2sUCEZtkPvcA?e=zCz82n)
+- [alternate download](https://drive.google.com/file/d/1TD_YIRS6vcisnJZGNpMV2NxLggAgb2Xg/view?usp=sharing)
+
 ## Intro
 
 | An automated workflow might look something like: | My personal workflow looks like the following: |
 | --- | --- |
 | <img src=diagram/auto-paper-new.png width=600> | <img src=diagram/auto-paper-new12-protocols.png width=650> |
 
-LaTeX and Git are the bread and butter of an automated scientific research paper. While you can use some aspects of these tips/tricks without LaTeX/Git (e.g. MathPix Snipping Tool), many others are highly integrated. Learning LaTeX and Git might have a startup cost of 10-100 hrs (depending on desired skill level), but could easily save you 100's of hrs in the first year or two of you using it.
+LaTeX and Git are the bread and butter of an automated scientific research paper. While you can use some aspects of these tips/tricks without LaTeX/Git (e.g. MathPix Snipping Tool), many others are highly integrated. Learning LaTeX and Git might have a startup cost of 10-100 hrs (depending on desired skill level), but could easily save 100's of hrs in the first year or two of using it.
 
 ## LaTeX Document Typesetting
-LaTeX allows you to focus more on content rather than formatting.
+LaTeX (pronounced "Lah-tech" or "Lay-tech") allows you to focus more on content rather than formatting.
 
 See 🔗[LaTeX Teaching](latex-teaching)
 
