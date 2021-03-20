@@ -42,4 +42,4 @@ See the following resources:
 * [How do I create or restore a backup of my Mendeley database?](https://service.elsevier.com/app/answers/detail/a_id/18153/) (referred to in the migration steps I believe)
 
 ## Acknowledgement
-Taken from BYU-Materials-Innovation/training/
+Taken from @BYU-Materials-Innovation/training/ (private repo)
