@@ -1,11 +1,11 @@
 # auto-paper
-Automate your scientific research paper (thesis, original article, review).
+Automate your scientific research paper (thesis, original article, review). The aim of auto-paper is to give you tips, tricks, and tools to accelerate your publication rate and improve publication quality.
 
 ## Seminar
 <!--- [Watch the seminar](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=131s):  -->
 > Taylor Sparks
 > 7K subscribers
-> 
+>
 > Sterling Baird, PhD candidate at the University of Utah's Materials Science & Engineering Department in Dr. Taylor Sparks' laboratory, explains some incredible tips, tricks, and tools for automating your research paper. This presentation includes awesome video tutorials for using Github, LaTeX, Matlab, Mathematica, overleaf, Zotero, Web of Science, Scinote, Endnote Click, Science Direct, Table generators, Mathpix snip, protocols.io, and so much more!
 Sterling has video demonstrations for each software package and explains how they can all work together in one seamless workflow that will make life easy for any graduate student or researcher. Learn how to be a graduate student from the future with these amazing tools that will astonish your PhD advisor!
 >
@@ -28,8 +28,6 @@ Sterling has video demonstrations for each software package and explains how the
 | <img src=diagram/auto-paper-new.png width=600> | <img src=diagram/auto-paper-new12-protocols.png width=650> |
 
 LaTeX and Git are the bread and butter of an automated scientific research paper. While you can use some aspects of these tips/tricks without LaTeX/Git (e.g. MathPix Snipping Tool), many others are highly integrated. Learning LaTeX and Git might have a startup cost of 10-100 hrs (depending on desired skill level), but could easily save you 100's of hrs in the first year or two of you using it.
-
-**The aim of "auto-paper" is to enable to you accelerate your publication rate and improve publication quality.**
 
 ## LaTeX Document Typesetting
 LaTeX allows you to focus more on content rather than formatting.
@@ -78,21 +76,21 @@ Find an image of the equation you're looking for and use [Mathpix Snipping Tool]
 You can play around with Mathematica code (including use of `TeXForm`) and get some quick interactive tutorials via the [Wolfram Programming Lab](https://www.wolfram.com/programming-lab/) (no sign-in required). If after spending a few minutes, you decide you're interested in trying it out, I suggest downloading Mathematica with a 15-day free trial or using your institution's license if applicable.
 
 #### Beginner:  
-Use <button type="button" name="button" class="btn">CopyAs..</button> <button type="button" name="button" class="btn">"LaTeX"</button>
+Right click on selection and <button type="button" name="button" class="btn">CopyAs..</button> <button type="button" name="button" class="btn">"LaTeX"</button>
 * Typeset equations in Mathematica
 * Can copy LaTeX or MathML into Mathematica (latter generally behaves better in my experience)
 
 #### Intermediate:
 
-More advanced typesetting:
+##### More advanced typesetting:
 
 <img src=figures/mathematica-crabnet-4x.gif width=950>
 
-LaTeX Formatted:
+##### LaTeX Formatted:
 
 <img src=figures/mathematica-latex-formatted.png width=600>
 
-Mathematica "Copy As.. LaTeX" Output
+##### Mathematica "Copy As.. LaTeX" Output
 
 ```latex
 \begin{equation}
@@ -187,10 +185,6 @@ After downloading with EndNote Click, drag-and-drop the PDF into Zotero into a f
 
 <img src=figures/zotero-metadata-extraction.gif width=650>
 
-
-## LaTeX
-Overleaf has great LaTeX documentation, even if you're not using Overleaf. Start out with [Documentation Home](https://www.overleaf.com/learn/latex/Main_Page) and the linked [Learn LaTeX in 30 minutes](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes). Also note that the [TeX Stack Exchange](https://tex.stackexchange.com) is a great resource as well. Google searches will often pull up links to either resource. Andrew Falkowski also gives a [Tutorial for writing lab reports in LaTeX and Overleaf](https://www.youtube.com/watch?v=y8y_KIs9JLs).
-
 ### Packages
 In addition to the above resources, packages have their own documentation and examples which are usually quite informative.
 
@@ -204,7 +198,7 @@ Moved a section from the introduction to the right before the conclusion, and me
 ```
 <img src=readme-images/gls-cmds.png width=250>
 
-I like to \glsreset after the abstract and right before the conclusion.
+I like to `\glsreset` after the abstract and right before the conclusion so that people don't have to go digging through the paper if they're just reading one of those sections. I generally use `\acrfull{}` in the first usage within a figure or table caption, and then `\acrshort{}` afterwards (within the same caption). I believe captions are supposed to be stand-alone components similar to the abstract.
 
 #### siunitx (for SI units and values)
 Dealing with numbers and units is a cinch with this package.
@@ -230,7 +224,7 @@ Dealing with numbers and units is a cinch with this package.
 <img src=readme-images/cite-cmds.png width=250>
 
 #### xr, zref-xr, or xr-hyper (for multi-document projects)
-e.g. Supplementary Information or Supporting Information, or multiple documents with overlapping content.
+Especially useful for cross-reference between main and Supplementary/Supporting information document in same project.
 Overleaf tutorial: [Cross referencing with the xr package in Overleaf](https://www.overleaf.com/learn/how-to/Cross_referencing_with_the_xr_package_in_Overleaf)
 
 ## Electronic Laboratory Notebooks (ELNs)
@@ -238,6 +232,3 @@ Overleaf tutorial: [Cross referencing with the xr package in Overleaf](https://w
 ### SciNote
 
 ### protocols.io
-
-### MATLAB
-
