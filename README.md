@@ -1,6 +1,8 @@
 # auto-paper
 Automate your scientific research paper (thesis, original article, review). The aim of auto-paper is to give you tips, tricks, and tools to accelerate your publication rate and improve publication quality.
 
+> :warning: 2021-03-20 This repository is under construction. The end-goal is to have a plug-and-play system that links many of the existing (and amazing) tools that are available to help create scientific documents and add some new tools as well. In the meantime, I hope that the "tips, tricks, and tools" covered in this repository can be of use for you. Please open up an Issue if you have feedback, suggestions, or things you're particularly interested in. I'll prioritize these. Pull requests are welcome.
+
 ## Seminar
 <!--- [Watch the seminar](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=131s):  -->
 > Taylor Sparks
