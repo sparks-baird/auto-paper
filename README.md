@@ -81,7 +81,9 @@ Find an image of the equation you're looking for and use [Mathpix Snipping Tool]
 ### Mathematica
 
 ### Quick, Interactive Tutorial
-You can play around with Mathematica code (including use of `TeXForm`) and get some quick interactive tutorials via the [Wolfram Programming Lab](https://www.wolfram.com/programming-lab/) (no sign-in required). If after spending a few minutes, you decide you're interested in trying it out, I suggest downloading Mathematica with a 15-day free trial or using your institution's license if applicable.
+You can play around with Mathematica code (including use of `TeXForm`) and get some quick interactive tutorials via the [Wolfram Programming Lab](https://www.wolfram.com/programming-lab/) (no sign-in required). If after spending a few minutes, you decide you're interested in trying it out, I suggest downloading Mathematica with a 15-day free trial or using your institution's license if applicable. <img src="http://tiny.cc/u-logo" width=20> Mathematica licenses are not yet offered at UoU for general download, but you can use it via [UoU CHPC](https://www.chpc.utah.edu/documentation/software/Mathematica.php). [Student pricing](https://www.wolfram.com/mathematica/pricing/students/) (as of 2021-03-20) is as follows:
+
+<img src=https://user-images.githubusercontent.com/45469701/111865007-04f92280-892a-11eb-8b36-a985bbb0ba23.png width=175>
 
 #### Beginner:  
 Right click on selection and <button type="button" name="button" class="btn">CopyAs..</button> <button type="button" name="button" class="btn">"LaTeX"</button>
@@ -91,6 +93,7 @@ Right click on selection and <button type="button" name="button" class="btn">Cop
 #### Intermediate:
 
 ##### More advanced typesetting:
+To help you learn the shortcuts, consider opening the Math Assistant Palette and hovering over the relevant "boxes" to see the shortcut commands. While the palettes can be useful at first, don't let them become a crutch. Chances are you won't need them most of the time once you're more comfortable. Advanced typesetting is demonstrated for a teaching figure:
 
 <img src=figures/mathematica-crabnet-4x.gif width=950>
 
