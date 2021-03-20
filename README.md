@@ -165,7 +165,7 @@ Keywords deserve their own section because they can make or break your success i
 Citation trees (or webs) help you find "gold", "silver", and "bronze" articles in your field by allowing you to trace what works have been cited and what works have been doing the citing. Find 3-4 highly relevant papers in your field, moving up, down, and side-to-side in the citation tree can lead to a treasure trove of other articles.
 
 Here is an example of navigating to "citing" articles within Web of Science:
-<img src=figures/wos-citing-articles.gif width=650>
+<img src=figures/wos-citing-article.gif width=650>
 
 #### Science Direct
 [Science Direct](https://www.sciencedirect.com)
