@@ -85,7 +85,7 @@ You can play around with Mathematica code (including use of `TeXForm`) and get s
 
 <img src=https://user-images.githubusercontent.com/45469701/111865007-04f92280-892a-11eb-8b36-a985bbb0ba23.png width=175>
 
-You can also [call Mathematica functions from within Python](https://reference.wolfram.com/language/WolframClientForPython/) (no cost), though you lose out on some of the beauty of Mathematica 😉.
+You can also [call Mathematica functions from within Python](https://reference.wolfram.com/language/WolframClientForPython/), but you still need to install Mathematica in the default location or connect to a Cloud kernel ([basic plan of Wolfram Cloud is free](https://www.wolframcloud.com/)).
 
 #### Beginner:  
 Right click on selection and <button type="button" name="button" class="btn">CopyAs..</button> <button type="button" name="button" class="btn">"LaTeX"</button>
