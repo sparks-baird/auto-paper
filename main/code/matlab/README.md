@@ -142,3 +142,6 @@ Open function | `Ctrl+D` | (?)
 | Image | Source |
 | --- | --- |
 | Simba Learns to Code | https://www.reddit.com/r/ProgrammerHumor/comments/a9dijb/legacy_code/ |
+
+## Acknowledgements
+Primarily based on page from @BYU-Materials-Innovation/training private repo.
