@@ -148,7 +148,7 @@ Using `TeXport[]`
 * Perform and typeset proofs (equations, variable definitions, sentences, and symbolic solutions)
 
 ### MathType
-I've played around with this and have been able to get a comparable typesetting experience as Mathematica (i.e. edit the equation in its "full" form and copy as LaTeX code). Most shortcuts are fairly complicated for being shortcuts (almost all of the standard ones involves a Ctrl+<key1>, release, then <key2>). MathType is the only thing I've found so far that gives a similar typesetting experience to Mathematica. Once the free trial expires, the cost is ~$50/year. Personally, I prefer Mathematica still (MathType is only typesetting), but this may suit your needs.
+I've played around with [MathType](https://store.wiris.com/en/products/mathtype/download) and have been able to get a comparable typesetting experience as Mathematica (i.e. edit the equation in its "full" form and copy as LaTeX code). Most shortcuts are fairly complicated for being shortcuts (almost all of the standard ones involves a Ctrl+<key1>, release, then <key2>). MathType is the only thing I've found so far that gives a similar typesetting experience to Mathematica. Once the free trial expires, the cost is ~$50/year. Personally, I prefer Mathematica still (MathType is only typesetting), but this may suit your needs.
 
 ## Literature
 If it was easy, someone has probably already done it. If not, it's probably not as important as you think.
