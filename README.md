@@ -249,3 +249,6 @@ Overleaf tutorial: [Cross referencing with the xr package in Overleaf](https://w
 ### SciNote
 
 ### protocols.io
+
+### Diagrams
+https://tikzit.github.io/#styles
