@@ -143,7 +143,7 @@ To help you learn the shortcuts, consider opening the Math Assistant Palette and
 ```
 
 #### Advanced:
-Using `TeXport[]`
+Using [TeXport](https://github.com/sgbaird/TeXport)
 * Export equations to a `.tex` file
 * Export equations followed by variable definitions (e.g. "where a, b, and c represent apples, bananas, and cantouloupes, respectively.")
 * Perform and typeset proofs (equations, variable definitions, sentences, and symbolic solutions)
