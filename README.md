@@ -247,6 +247,10 @@ Overleaf tutorial: [Cross referencing with the xr package in Overleaf](https://w
 ## Electronic Laboratory Notebooks (ELNs)
 ### SciNote vs. Labfolder vs. LabArchives vs. OneNote
 ### SciNote
+### Open Citrine Platform and physical information file (PIF)/GEMD data format
+
+## Lab Information Management Systems (LIMS)
+More comprehensive than a lab notebook solution.
 
 ### protocols.io
 
