@@ -1,0 +1,154 @@
+%MIT License
+\ProvidesPackage{autopaper}
+% uploading packages
+\RequirePackage[table]{xcolor} % https://tex.stackexchange.com/a/83102/224861, https://tex.stackexchange.com/a/54925/224861
+\RequirePackage{kvoptions}
+\RequirePackage{setspace}
+\RequirePackage{graphicx}
+\RequirePackage{amssymb}
+\RequirePackage{textcomp} % https://latex.org/forum/viewtopic.php?f=4&t=3364#p13124, https://tex.stackexchange.com/questions/165115
+\RequirePackage{gensymb}
+\RequirePackage{lineno}
+\RequirePackage{mathtools}
+\RequirePackage[title]{appendix}
+\RequirePackage{pgfmath}
+\newcommand{\calcnum}[2][1]{%
+    \pgfmathparse{#2}%
+    \num[round-mode=places,round-precision=#1]{\pgfmathresult}%
+}
+\newcommand{\percReduction}[3][1]{\calcnum[#1]{(#3-#2)/#3*100}}
+\newcommand{\absReduction}[3][4]{\calcnum[#1]{#3-#2}}
+\RequirePackage[separate-uncertainty=true]{siunitx}
+% \RequirePackage{xr-hyper} %needs to  be before hyperref
+% \RequirePackage{numprint} %tex.stackexchange.com/a/9139/224861
+\RequirePackage{enumitem}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+\newcommand{\NA}{---} % holds an m-dash
+\graphicspath{{figures/}} %Setting the graphicspath
+% ---------to deal with the double quotes----------- 
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+\RequirePackage{listings}[breakatwhitespace=true,escapechar=\%]
+\RequirePackage{pythonhighlight}
+\RequirePackage{matlab-prettifier}
+
+\RequirePackage{mathrsfs}
+\RequirePackage{chemformula}
+\RequirePackage{tabulary}
+\RequirePackage{multirow}
+\RequirePackage{makecell} % https://tex.stackexchange.com/questions/2441/how-to-add-a-forced-line-break-inside-a-table-cell
+\newcommand{\matlab}[1]{\mbox{\lstinline[style=Matlab-editor]{#1}}}
+%alternatively can use `` '' format for double quotes
+\RequirePackage{csvsimple}
+\RequirePackage{booktabs}
+\RequirePackage{widetext}
+\setlength {\marginparwidth}{2cm} 
+\setlength{\abovetopsep}{1ex}
+
+\RequirePackage{xurl} %needs to be before hyperref
+\RequirePackage{hyperref}
+% \PassOptionsToPackage{hyphens}{url} \RequirePackage{hyperref} %allow URLs to break across lines
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+} %https://tex.stackexchange.com/a/847/224861
+\RequirePackage[nameinlink,capitalise]{cleveref} %needs to appear after hyperref, https://tex.stackexchange.com/questions/396728/my-equations-referencing-not-working
+\Crefname{figure}{Figure}{Figures} %needs to appear after hyperref and cleveref
+\crefname{appsec}{Appendix}{Appendices}
+\newcommand\crefrangeconjunction{--} % modify the reference style
+
+\RequirePackage[shortcuts,abbreviations]{glossaries-extra} %needs to appear after hyperref
+% \RequirePackage[shortcuts,abbreviations]{glossaries-extra} %for some reason, abbreviations seemed to be messing with automatic regeneration of Glossary and the counting stuff
+
+\newcommand*{\TCac}[1]{\ecapitalisewords{\glsentrylong{#1}}}
+% remove the "Preprint submitted to Elsevier" footer on the first page
+% \makeatletter %conflicts with 
+\def\ps@pprintTitle{%
+   \let\@oddhead\@empty
+   \let\@evenhead\@empty
+   \def\@oddfoot{\reset@font\hfil\thepage\hfil}
+   \let\@evenfoot\@oddfoot
+}
+% \makeatother
+
+% Cross referencing with the xr package in Overleaf (https://www.overleaf.com/learn/how-to/Cross_referencing_with_the_xr_package_in_Overleaf)
+
+% \makeatletter
+\newcommand*{\addFileDependency}[1]{% argument=file name and extension
+  \typeout{(#1)}
+  \@addtofilelist{#1}
+  \IfFileExists{#1}{}{\typeout{No file #1.}}
+}
+% \makeatother
+
+% \newcommand*{\myexternaldocument}[2]{%
+%   \externaldocument{#1/#2}%
+%     \addFileDependency{#2.tex}%
+%     \addFileDependency{#1/#2.aux}% https://tex.stackexchange.com/a/590837/224861
+\newcommand*{\myexternaldocument}[1]{%
+    \externaldocument{#1}%
+    \addFileDependency{#1.tex}%
+    \addFileDependency{#1.aux}%
+}
+\RequirePackage{nameref,zref-xr}
+\zxrsetup{toltxlabel}
+% \zexternaldocument*{supp} %https://tex.stackexchange.com/questions/77774/undefined-control-sequence-when-cross-referencing-with-xr-hyper
+% \myexternaldocument{supp}
+\ifcsname biboptions\endcsname
+  \biboptions{sort&compress} %only use if defined
+\else
+  % do nothing
+\fi
+% https://tex.stackexchange.com/questions/46223/if-document-class-is-equal-to-something-then-do-not-use-package
+
+\interfootnotelinepenalty=10000 %prevent footnotes from getting split across columns/pages 
+%\patchcmd{\emailauthor}{(#2)}{(S.G. Baird).}{}{} %Removes/Abbreviates corresponding author name after Email address so that the footnote doesn't take up 2 lines.
+% Double Spacing
+% \doublespacing
+
+\newcommand*{\glsentrytitlecasefull}[1]{\glsentrytitlecase{#1}{long} (\glsentryshort{#1}) }
+
+\newcommand*{\glsentrytitlecasefullplural}[1]{\glsentrytitlecase{#1}{longpl} (\glsentryshort{#1}s) }
+
+%Options
+\DeclareBoolOption[true]{refcheck}
+
+\DeclareBoolOption[true]{todonotes}
+\ProcessKeyvalOptions*{}
+% \newif\ifmypackage@todonotes
+% \DeclareOption{todonotes}{\mypackage@todonotestrue}
+% \DeclareOption{notodonotes}{\mypackage@todonotesfalse}
+% \ExecuteOptions{todonotes}
+
+% \ProcessOptions\relax
+
+\ifautopaper@refcheck
+    \RequirePackage{refcheck} %checks for unused labels - comment when done
+    %%% Infrastructure    
+    % \makeatletter
+    \newcommand{\refcheckize}[1]{%
+      \expandafter\let\csname @@\string#1\endcsname#1%
+      \expandafter\DeclareRobustCommand\csname relax\string#1\endcsname[1]{%
+        \csname @@\string#1\endcsname{##1}\wrtusdrf{##1}}%
+      \expandafter\let\expandafter#1\csname relax\string#1\endcsname
+    }
+    % \makeatother
+    %%%
+    %%% Now we add the reference commands we want refcheck to be aware of
+    \refcheckize{\cref}
+    \refcheckize{\Cref}
+    %https://tex.stackexchange.com/questions/87610/making-refcheck-work-with-cleveref
+    
+    \let\orig@subcaption@@label\subcaption@@label
+\def\subcaption@@label#1#2{\usedref{sub@#2}\orig@subcaption@@label{#1}{#2}} % https://tex.stackexchange.com/a/412598/224861
+\fi
+
+\ifautopaper@todonotes
+    \RequirePackage[colorinlistoftodos]{todonotes}
+\else
+    \RequirePackage[disable]{todonotes}
+\fi
