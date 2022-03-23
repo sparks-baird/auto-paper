@@ -251,6 +251,8 @@ Overleaf tutorial: [Cross referencing with the xr package in Overleaf](https://w
 
 ## Lab Information Management Systems (LIMS)
 More comprehensive than a lab notebook solution.
+    
+For example, [LabCollector](https://labcollector.com/solutions/technology/labcollector-api/).
 
 ### protocols.io
 
