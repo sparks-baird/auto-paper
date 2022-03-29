@@ -79,6 +79,10 @@ Find an image of the equation you're looking for and use [Mathpix Snipping Tool]
 
 <img src=figures/mathpix-simple.gif width=500>
 
+### Mathlive
+
+https://github.com/arnog/mathlive (open-source, LaTeX support, but haven't tried out yet)
+
 ### Mathematica
 
 ### Quick, Interactive Tutorial
