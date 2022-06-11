@@ -60,7 +60,7 @@ Plotting videos by Dr. Taylor Sparks: Python to make nice figures.
 [Part III](https://www.youtube.com/watch?v=fwZahTYfyxA)
 
 ### MATLAB
-Wrap built-in functions into custom versatile functions that suit your research needs. For example, using `parityplot.m` from mat-fig (need to add repo link):  
+Wrap built-in functions into custom versatile functions that suit your research needs. For example, using `parityplot.m` from [mat-fig](https://github.com/sgbaird-5DOF/mat-fig):  
 <img src=https://github.com/sgbaird/latex-teaching/blob/main/figures/single-parity.png width=300>  
 
 See [MATLAB Directory](matlab)
