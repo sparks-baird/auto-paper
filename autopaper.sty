@@ -11,7 +11,7 @@
 \RequirePackage{lineno}
 \RequirePackage{mathtools}
 \RequirePackage[title]{appendix}
-\RequirePackage{pgfmath}
+% \RequirePackage{pgfmath}
 \newcommand{\calcnum}[2][1]{%
     \pgfmathparse{#2}%
     \num[round-mode=places,round-precision=#1]{\pgfmathresult}%
@@ -26,7 +26,7 @@
 \RequirePackage{subcaption}
 \newcommand{\NA}{---} % holds an m-dash
 \graphicspath{{figures/}} %Setting the graphicspath
-% ---------to deal with the double quotes----------- 
+% ---------to deal with the double quotes-----------
 \usepackage [english]{babel}
 \usepackage [autostyle, english = american]{csquotes}
 \MakeOuterQuote{"}
@@ -43,9 +43,13 @@
 %alternatively can use `` '' format for double quotes
 \RequirePackage{csvsimple}
 \RequirePackage{booktabs}
-\RequirePackage{widetext}
-\setlength {\marginparwidth}{2cm} 
+% \RequirePackage{widetext} % kept running into bugs with disappearing text, maybe due to multicol - never could quite figure out
+% \usepackage{breqn} % wasn't working as intended with the Mathematica output
+\RequirePackage{cuted}
+\setlength {\marginparwidth}{2cm}
 \setlength{\abovetopsep}{1ex}
+
+\RequirePackage{placeins}
 
 \RequirePackage{xurl} %needs to be before hyperref
 \RequirePackage{hyperref}
@@ -61,12 +65,12 @@
 \crefname{appsec}{Appendix}{Appendices}
 \newcommand\crefrangeconjunction{--} % modify the reference style
 
-\RequirePackage[shortcuts,abbreviations]{glossaries-extra} %needs to appear after hyperref
+\RequirePackage[shortcuts]{glossaries-extra} %needs to appear after hyperref
 % \RequirePackage[shortcuts,abbreviations]{glossaries-extra} %for some reason, abbreviations seemed to be messing with automatic regeneration of Glossary and the counting stuff
 
 \newcommand*{\TCac}[1]{\ecapitalisewords{\glsentrylong{#1}}}
 % remove the "Preprint submitted to Elsevier" footer on the first page
-% \makeatletter %conflicts with 
+% \makeatletter %conflicts with
 \def\ps@pprintTitle{%
    \let\@oddhead\@empty
    \let\@evenhead\@empty
@@ -88,12 +92,14 @@
 % \newcommand*{\myexternaldocument}[2]{%
 %   \externaldocument{#1/#2}%
 %     \addFileDependency{#2.tex}%
-%     \addFileDependency{#1/#2.aux}% https://tex.stackexchange.com/a/590837/224861
+%     \addFileDependency{#1/#2.aux}% https://tex.stackexchange.com/a/590837/224861 % couldn't get to work, left a comment
+
 \newcommand*{\myexternaldocument}[1]{%
     \externaldocument{#1}%
     \addFileDependency{#1.tex}%
     \addFileDependency{#1.aux}%
 }
+
 \RequirePackage{nameref,zref-xr}
 \zxrsetup{toltxlabel}
 % \zexternaldocument*{supp} %https://tex.stackexchange.com/questions/77774/undefined-control-sequence-when-cross-referencing-with-xr-hyper
@@ -105,7 +111,7 @@
 \fi
 % https://tex.stackexchange.com/questions/46223/if-document-class-is-equal-to-something-then-do-not-use-package
 
-\interfootnotelinepenalty=10000 %prevent footnotes from getting split across columns/pages 
+\interfootnotelinepenalty=10000 %prevent footnotes from getting split across columns/pages
 %\patchcmd{\emailauthor}{(#2)}{(S.G. Baird).}{}{} %Removes/Abbreviates corresponding author name after Email address so that the footnote doesn't take up 2 lines.
 % Double Spacing
 % \doublespacing
@@ -128,7 +134,7 @@
 
 \ifautopaper@refcheck
     \RequirePackage{refcheck} %checks for unused labels - comment when done
-    %%% Infrastructure    
+    %%% Infrastructure
     % \makeatletter
     \newcommand{\refcheckize}[1]{%
       \expandafter\let\csname @@\string#1\endcsname#1%
@@ -142,7 +148,7 @@
     \refcheckize{\cref}
     \refcheckize{\Cref}
     %https://tex.stackexchange.com/questions/87610/making-refcheck-work-with-cleveref
-    
+
     \let\orig@subcaption@@label\subcaption@@label
 \def\subcaption@@label#1#2{\usedref{sub@#2}\orig@subcaption@@label{#1}{#2}} % https://tex.stackexchange.com/a/412598/224861
 \fi
@@ -152,3 +158,13 @@
 \else
     \RequirePackage[disable]{todonotes}
 \fi
+
+% https://tex.stackexchange.com/questions/369559/how-to-force-new-page-if-paragraph-will-break
+\newcommand{\uComment}[3]{%
+  \filbreak
+  \begin{commentTextFont}#1\end{commentTextFont}%
+  \vspace*{0.5cm}
+  \begin{userFont}\textit{#2}\hspace*{\fill}%
+  \begin{dateFont}#3\end{dateFont}\end{userFont}%
+  \vspace*{0.8cm}
+}
