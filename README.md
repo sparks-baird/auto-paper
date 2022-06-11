@@ -271,7 +271,7 @@ Overleaf tutorial: [Cross referencing with the xr package in Overleaf](https://w
 ### Lab Information Management Systems (LIMS)
 More comprehensive than a lab notebook solution.
     
-For example, [LabCollector](https://labcollector.com/solutions/technology/labcollector-api/).
+For example, [LabCollector](https://labcollector.com/solutions/technology/labcollector-api/) and [openBIS](https://openbis.ch/)
     
 ### See also
 > Jablonka KM, Zasso M, Patiny L, Marzari N, Pizzi G, Smit B, et al. Connecting lab experiments with computer experiments: Making "routine" simulations routine. ChemRxiv. Cambridge: Cambridge Open Engage; 2021;  This content is a preprint and has not been peer-reviewed. https://doi.org/10.26434/chemrxiv-2021-h3381-v2
