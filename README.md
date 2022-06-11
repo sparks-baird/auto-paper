@@ -3,6 +3,30 @@ Automate your scientific research paper (thesis, original article, review). The 
 
 > :warning: 2021-03-20 This repository is under construction. The end-goal is to have a plug-and-play system that links many of the existing (and amazing) tools that are available to help create scientific documents and add some new tools as well. In the meantime, I hope that the "tips, tricks, and tools" covered in this repository can be of use for you. Please open up an Issue if you have feedback, suggestions, or things you're particularly interested in. I'll prioritize these. Pull requests are welcome.
 
+Interested in seeing a template and usage instructions for the LaTeX [`autopaper.sty`](autopaper.sty) package? Please fill out [the poll under "Discussions"](https://github.com/sparks-baird/auto-paper/discussions/4).
+
+## Usage in Publications
+
+### 2022
+> - S. G. Baird, M. Liu, T. D. Sparks, (2022), Computational Materials Science, https://dx.doi.org/10.1016/j.commatsci.2022.111505 ([arXiv](https://dx.doi.org/10.48550/arXiv.2203.12597))
+> - S. G. Baird, J. R. Hall, T. D. Sparks, (2022), ChemRxiv, https://dx.doi.org/10.26434/chemrxiv-2022-nz2w8
+> - S. G. Baird, M. Liu, H. M. Sayeed, T. D. Sparks, (2022), arXiv, http://arxiv.org/abs/2202.02380
+> - S. G. Baird, E. R. Homer, D. T. Fullwood, O. K. Johnson, (2022), MethodsX, https://dx.doi.org/10.1016/j.mex.2022.101731
+> - S. G. Baird, T. Q. Diep, T. D. Sparks, (2022), Digital Discovery, https://dx.doi.org/10.1039/D1DD00028D
+
+### 2021
+> - S. G. Baird, E. R. Homer, D. T. Fullwood, O. K. Johnson, (2021), ChemRxiv, https://dx.doi.org/10.26434/chemrxiv-2021-ds0ml
+> - S. G. Baird, E. R. Homer, D. T. Fullwood, O. K. Johnson, (2021) Computational Materials Science, https://dx.doi.org/10.1016/j.commatsci.2021.110756
+
+
+<!-- 1. Baird, S. G.; Liu, M.; Sparks, T. D. High-Dimensional Bayesian Optimization of 23 Hyperparameters over 100 Iterations for an Attention-Based Network to Predict Materials Property: A Case Study on CrabNet Using Ax Platform and SAASBO. Computational Materials Science 2022, 211, 111505. https://doi.org/10.1016/j.commatsci.2022.111505.
+2. Baird, S.; Hall, J. R.; Sparks, T. D. Effect of Reducible and Irreducible Search Space Representations on Adaptive Design Efficiency: A Case Study on Maximizing Packing Fraction for Solid Rocket Fuel Propellant Simulations; preprint; Chemistry, 2022. https://doi.org/10.26434/chemrxiv-2022-nz2w8.
+3. Baird, S. G.; Liu, M.; Sparks, T. D. High-Dimensional Bayesian Optimization of Hyperparameters for an Attention-Based Network to Predict Materials Property: A Case Study on CrabNet Using Ax and SAASBO; arXiv:2203.12597; arXiv, 2022. https://doi.org/10.48550/arXiv.2203.12597.
+4. Baird, S. G.; Liu, M.; Sayeed, H. M.; Sparks, T. D. Data-Driven Materials Discovery and Synthesis Using Machine Learning Methods. arXiv February 28, 2022.
+5. Baird, S. G.; Homer, E. R.; Fullwood, D. T.; Johnson, O. K. Computationally Efficient Barycentric Interpolation of Large Grain Boundary Octonion Point Sets. MethodsX 2022, 9, 101731. https://doi.org/10.1016/j.mex.2022.101731.
+6. Baird, S. G.; Diep, T. Q.; Sparks, T. D. DiSCoVeR: A Materials Discovery Screening Tool for High Performance, Unique Chemical Compositions. Digital Discovery 2022, 10.1039.D1DD00028D. https://doi.org/10.1039/D1DD00028D.
+7. Baird, S. G.; Homer, E. R.; Fullwood, D. T.; Johnson, O. K. Towards a Quantitative Cartography of the Grain Boundary Energy Landscape: Paths and Correlations. 2021. https://doi.org/10.26434/chemrxiv-2021-ds0ml. -->
+
 ## Seminar
 ### Video
 <!--- [Watch the seminar](https://www.youtube.com/watch?v=K7xbBEMm8I0&t=131s):  -->
@@ -42,6 +66,17 @@ LaTeX and Git are the bread and butter of an automated scientific research paper
 LaTeX (pronounced "Lah-tech" or "Lay-tech") allows you to focus more on content rather than formatting.
 
 See 🔗[LaTeX Teaching](latex-teaching)
+
+You may be interested in using `autopaper.sty` which I've been iterating on for years and is based on referencing hundreds of stack exchange posts and extensive troubleshooting. This is probably one of the highest-impact contributions of this repo/methodology. It can be used by placing the file in your parent folder and in your main document using the command:
+```tex
+\usepackage[refcheck=false,todonotes=false]{autopaper}
+```
+or simply:
+```tex
+\usepackage{autopaper}
+```
+
+Template and detailed usage instructions TBD. If you're interested in using this sooner, please consider [filling out the poll under "Discussions"](https://github.com/sparks-baird/auto-paper/discussions/4).
 
 ## Git Version Control
 Git gives you ease, control, power, and peace of mind in version control.
