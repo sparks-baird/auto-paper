@@ -261,16 +261,24 @@ Dealing with numbers and units is a cinch with this package.
 Especially useful for cross-reference between main and Supplementary/Supporting information document in same project.
 Overleaf tutorial: [Cross referencing with the xr package in Overleaf](https://www.overleaf.com/learn/how-to/Cross_referencing_with_the_xr_package_in_Overleaf)
 
-## Electronic Laboratory Notebooks (ELNs)
-### SciNote vs. Labfolder vs. LabArchives vs. OneNote
-### SciNote
-### Open Citrine Platform and physical information file (PIF)/GEMD data format
+## Data Management
+### Electronic Laboratory Notebooks (ELNs)
 
-## Lab Information Management Systems (LIMS)
+[SciNote](https://www.scinote.net/) vs. [Labfolder](https://www.labfolder.com/) vs. [LabArchives](https://www.labarchives.com/) vs. [OneNote](https://www.microsoft.com/en-us/microsoft-365/onenote/digital-note-taking-app)
+    
+[Open Citrine Platform](https://citrine.io/) and [PIF](https://citrineinformatics.github.io/pif-documentation/)/[GEMD](https://citrineinformatics.github.io/gemd-docs/) data formats
+
+### Lab Information Management Systems (LIMS)
 More comprehensive than a lab notebook solution.
     
 For example, [LabCollector](https://labcollector.com/solutions/technology/labcollector-api/).
+    
+### See also
+> Jablonka KM, Zasso M, Patiny L, Marzari N, Pizzi G, Smit B, et al. Connecting lab experiments with computer experiments: Making "routine" simulations routine. ChemRxiv. Cambridge: Cambridge Open Engage; 2021;  This content is a preprint and has not been peer-reviewed. https://doi.org/10.26434/chemrxiv-2021-h3381-v2
 
+- https://github.com/stars/sgbaird/lists/lab-automation
+- https://github.com/stars/sgbaird/lists/scientific-publishing
+    
 ### protocols.io
 
 ### Diagrams
