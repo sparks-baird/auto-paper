@@ -78,7 +78,13 @@ or simply:
 
 Template and detailed usage instructions TBD. If you're interested in using this sooner, please consider [filling out the poll under "Discussions"](https://github.com/sparks-baird/auto-paper/discussions/4).
 
-## Git Version Control
+## Code Development
+
+### PyScaffold
+
+I encourage you to check out [PyScaffold](https://pyscaffold.org/en/stable/). For some examples of this in action on repositories I'm developing, see [`xtal2png`](https://xtal2png.readthedocs.io/en/latest/) ([GitHub](https://github.com/sparks-baird/xtal2png)) and [`mp-time-split`](https://mp-time-split.readthedocs.io/en/latest/) ([GitHub](https://github.com/sparks-baird/mp-time-split)).
+
+### Git Version Control
 Git gives you ease, control, power, and peace of mind in version control.
 
 See 🔗[Git Teaching](git-teaching)
