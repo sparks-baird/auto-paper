@@ -51,6 +51,7 @@ See 🔗[Git Teaching](git-teaching)
 ## Figures
 
 ### python
+#### YouTube tutorials
 Plotting videos by Dr. Taylor Sparks: Python to make nice figures.
 
 [Part I](https://www.youtube.com/watch?v=rUV8VFbUi_U)
@@ -58,6 +59,18 @@ Plotting videos by Dr. Taylor Sparks: Python to make nice figures.
 [Part II](https://www.youtube.com/watch?v=Y8JWfGjj2ok)
 
 [Part III](https://www.youtube.com/watch?v=fwZahTYfyxA)
+
+#### `pymatviz`
+Highly recommended: [`pymatviz`](https://github.com/janosh/pymatviz) (`Python >= 3.8`), a toolkit for visualizations in materials informatics.
+```python
+pip install pymatviz
+```
+
+Here are the example visualizations taken from the pymatviz README (2022-06-11):
+<img src=https://user-images.githubusercontent.com/45469701/173202327-81ca9dd4-c871-4adb-83da-0ed1a72f9a77.png width=450>
+
+#### Other
+See https://github.com/stars/sgbaird/lists/visualization
 
 ### MATLAB
 Wrap built-in functions into custom versatile functions that suit your research needs. For example, using `parityplot.m` from [mat-fig](https://github.com/sgbaird-5DOF/mat-fig):  
