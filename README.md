@@ -110,6 +110,8 @@ pip install pymatviz
 Here are the example visualizations taken from the pymatviz README (2022-06-11):
 <img src=https://user-images.githubusercontent.com/45469701/173202327-81ca9dd4-c871-4adb-83da-0ed1a72f9a77.png width=450>
 
+For a nice materials science-focused Python/Jupyter introduction, see the Primer at https://workshop.materialsproject.org/.
+
 #### Other
 See https://github.com/stars/sgbaird/lists/visualization
 
